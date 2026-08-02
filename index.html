@@ -176,7 +176,7 @@
   <section class="hero">
     <h1>Web Tarot AI — Báo cáo dự án</h1>
     <p class="tagline">Báo cáo tiến độ · 10 mục · đối chiếu ngược với repo</p>
-    <div class="meta"><span class="chip">📅 2026-08-02 18:23</span><span class="chip">📁 Nguồn: Research/plan/</span></div>
+    <div class="meta"><span class="chip">📅 2026-08-02 18:41</span><span class="chip">📁 Nguồn: Research/plan/</span></div>
   </section>
 
   <div class="layout">
@@ -186,7 +186,7 @@
     </aside>
     <main>
       <article id="content"><p>Đang render…</p></article>
-      <footer class="gen-footer">Generated 2026-08-02 18:23 · nguồn <code>design/report.md</code> · dữ liệu gốc <code>Research/plan/</code> · regenerate bằng <code>/report</code></footer>
+      <footer class="gen-footer">Generated 2026-08-02 18:41 · nguồn <code>design/report.md</code> · dữ liệu gốc <code>Research/plan/</code> · regenerate bằng <code>/report</code></footer>
     </main>
   </div>
 
@@ -232,9 +232,11 @@ Free generic là chấp nhận được và dễ hiểu. Paid **bắt buộc** p
 
 ---
 
-## 2. Tiến độ theo giai đoạn
+## 2. Timeline & tiến độ
 
 Tính bằng số checkbox đã tick trên tổng số checkbox của từng giai đoạn. Giai đoạn không có mục nào được tick là **0%, chưa bắt đầu** — không làm tròn lên.
+
+Đầu việc dưới đây giữ **nguyên văn** từ `Research/plan/` để đối chiếu 1-1. Tick vào file kế hoạch, chạy lại `/report`, bảng này tự cập nhật.
 
 ### 2.1 Mười một giai đoạn
 
@@ -255,20 +257,303 @@ Tính bằng số checkbox đã tick trên tổng số checkbox của từng gia
 
 *Nguồn: `Research/plan/08-timeline.md` §3, §4*
 
-### 2.2 Checklist ngoài timeline
+### 2.2 Giai đoạn 1 — Nghiên cứu & Chuẩn bị · 3–4 ngày · 0/8
 
-33 đầu việc nữa nằm rải trong các file kế hoạch khác. Chúng không thuộc bảng giai đoạn nhưng vẫn là điều kiện để ship.
-
-| Checklist | Nguồn | Tiến độ |
+| ✓ | Đầu việc | Ghi chú |
 |---|---|---|
-| Case test webhook thanh toán | 05 §3.5 | ⬜ 0 / 8 |
-| Checklist secret | 06 §1.1 | ⬜ 0 / 7 |
-| Câu hỏi pháp lý cần xác minh sớm | 06 §4.3 | ⬜ 0 / 3 |
-| Cảnh báo & trần chi tiêu | 07 §7.2 | ⬜ 0 / 4 |
-| Ổn định sau launch | 09 Ngắn hạn | ⬜ 0 / 5 |
-| Tối ưu chuyển đổi | 09 Ngắn hạn | ⬜ 0 / 4 |
-| Chất lượng nội dung | 09 Ngắn hạn | ⬜ 0 / 2 |
-| **Tổng** | | **0 / 33** |
+| ⬜ | Nghiên cứu 3–5 đối thủ cùng ngách — ghi lại họ **tính phí thế nào**, không chỉ giao diện | |
+| ⬜ | Xác định đối tượng, tone thương hiệu | Đầu vào cho GĐ 2 |
+| ⬜ | Chuẩn bị dữ liệu 78 lá (`data/cards.json`): tên, tên Việt, từ khóa xuôi/ngược | Chặn GĐ 4a |
+| ⬜ | Tải bộ ảnh Rider-Waite từ nguồn public domain rõ ràng, resize + tối ưu | Vào `/public/cards/` |
+| ⬜ | **Xác minh yêu cầu PayOS** — có cần HKD không? Nếu có, nộp hồ sơ NGAY | 🔴 **Chặn GĐ 6** |
+| ⬜ | Đăng ký: Supabase, Vercel, Anthropic API key, domain | Ngoài repo |
+| ⬜ | Đặt spend limit trên Anthropic Console | Ngoài repo |
+| ⬜ | Xác minh số hotline hỗ trợ khủng hoảng còn hoạt động | Ngoài repo · kiểm lại mỗi 6 tháng |
+
+### 2.3 Giai đoạn 2 — Thiết kế · 5–6 ngày · 0/8
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | Định nghĩa design token: màu, spacing, type scale, radius, shadow, z-index | Chặn GĐ 3 |
+| ⬜ | Wireframe: trang chủ, chọn chủ đề, trải bài, kết quả, cá nhân, nạp credits | |
+| ⬜ | Thiết kế UI chi tiết (mood huyền bí, hiện đại) — **cả 2 theme nếu có dark/light** | |
+| ⬜ | Thiết kế animation xáo/lật bài: storyboard timing, easing, thứ tự | 2–3 ngày, hay bị ước thiếu |
+| ⬜ | Thiết kế đường **không-animation** cho `prefers-reduced-motion` | Không được cắt |
+| ⬜ | Thiết kế luồng thanh toán QR (đủ 5 trạng thái) | 05 §6 |
+| ⬜ | Thiết kế 4 trạng thái async cho mọi màn load dữ liệu | 01 §4 |
+| ⬜ | Kiểm tra contrast mọi cặp màu — nền tối + chữ vàng/tím rất dễ trượt | |
+
+### 2.4 Giai đoạn 3 — Setup nền tảng · 2–3 ngày · 0/8
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | Khởi tạo Next.js + Tailwind + token vào `tailwind.config` | |
+| ⬜ | Kết nối Supabase, viết migration schema | 04 |
+| ⬜ | Bật RLS + viết policies | Không được cắt |
+| ⬜ | Viết trigger chặn client update cột `credits` | Lỗ hổng dễ sót nhất |
+| ⬜ | Viết Postgres function: `credit_order`, `debit_reading`, `refund_reading`, `check_rate_limit` | |
+| ⬜ | Setup Supabase Auth (Google OAuth + magic link) + trigger tạo profile | |
+| ⬜ | Setup Sentry | |
+| ⬜ | Validate env bằng zod lúc khởi động | Lỗi cấu hình phải nổ sớm |
+
+### 2.5 Giai đoạn 4 — Tính năng cốt lõi · 8–10 ngày · 0/15
+
+**4a. Nội dung nền — 2 ngày**
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | Viết system prompt Lớp Nền | |
+| ⬜ | Chạy Batch API sinh 780 tổ hợp (Opus 5) | ~$6.24 |
+| ⬜ | **Đọc mẫu ≥50 đoạn, sửa prompt nếu lệch, chạy lại** | Hạng mục hay bị bỏ qua nhất |
+| ⬜ | Import vào `base_content` + tạo unique index | Không có index = full-scan |
+
+**4b. Trải bài — 4–5 ngày**
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | UI chọn chủ đề | 5 chủ đề cố định |
+| ⬜ | Component xáo/rút bài với Framer Motion | Chỉ animate `transform`/`opacity` |
+| ⬜ | Đường reduced-motion | Không được cắt |
+| ⬜ | RNG server-side (`crypto.randomInt`) | Không tin client |
+| ⬜ | API route `/api/reading`: đọc Lớp Nền, trả về | |
+
+**4c. Lớp Cá nhân — 2–3 ngày**
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | Viết system prompt Lớp Cá nhân | Phần ổn định đặt trước, cacheable |
+| ⬜ | Viết prompt + hàm kiểm duyệt (Haiku 4.5 + structured output) | Không truyền `effort` cho Haiku |
+| ⬜ | API route streaming với `thinking: disabled` + `effort: low` | Tiết kiệm 2,75× |
+| ⬜ | `after()` ghi `readings` sau khi stream xong | |
+| ⬜ | Xử lý `stop_reason: refusal` + hoàn credits khi lỗi | Mọi nhánh lỗi đều hoàn |
+| ⬜ | Đo token thật bằng `countTokens`, cập nhật dự toán | Không dùng `tiktoken` |
+
+### 2.6 Giai đoạn 5 — Tài khoản · 2–3 ngày · 0/5
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | Trang đăng nhập/đăng ký | |
+| ⬜ | Middleware bảo vệ route | |
+| ⬜ | Trang cá nhân: credits, lịch sử trải bài (có phân trang) | |
+| ⬜ | Trang lịch sử giao dịch (đọc từ `credit_ledger`) | |
+| ⬜ | Chức năng xóa từng lượt trải bài | Nghĩa vụ quyền riêng tư |
+
+### 2.7 Giai đoạn 6 — Thanh toán · 4–5 ngày · 0/8
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | Trang chọn gói credits + checkbox xác nhận điều khoản | Giá lấy từ hằng số server |
+| ⬜ | API tạo đơn + gọi PayOS | |
+| ⬜ | Webhook: verify signature → gọi `credit_order` (atomic + idempotent) | Ba lớp chống trùng |
+| ⬜ | Realtime cập nhật trạng thái | Realtime tôn trọng RLS |
+| ⬜ | Fallback polling 5s | Bảo hiểm rẻ cho luồng tiền |
+| ⬜ | Cron dọn đơn hết hạn | Mỗi 10 phút |
+| ⬜ | Trừ credits atomic khi Đọc sâu + hoàn khi lỗi | Trừ trước, hoàn nếu lỗi |
+| ⬜ | Query đối soát `profiles.credits` vs `sum(ledger.delta)` | Phải luôn trả 0 dòng |
+
+### 2.8 Giai đoạn 7 — Kiểm duyệt, bảo mật & pháp lý · 3–4 ngày · 0/8
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | Rate limit (Postgres) trên `/api/reading` và `/api/orders` | Không được cắt |
+| ⬜ | Tích hợp lớp kiểm duyệt vào luồng trải bài | Bắt buộc nếu có câu hỏi tự do |
+| ⬜ | Trang tài nguyên khủng hoảng (không quảng cáo, không CTA) | Hotline phải còn hoạt động |
+| ⬜ | Trang Điều khoản sử dụng | |
+| ⬜ | Trang Chính sách quyền riêng tư | |
+| ⬜ | Trang Chính sách hoàn tiền | 05 §8 |
+| ⬜ | Disclaimer dưới mỗi kết quả trải bài | Contrast ≥ 4.5:1 |
+| ⬜ | Rà soát: không log nội dung câu hỏi vào Sentry/analytics | Chỉ log ID + nhãn |
+
+### 2.9 Giai đoạn 8 — Testing · 4–5 ngày · 0/19
+
+**Chức năng**
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | Trải bài có/không đăng nhập | |
+| ⬜ | Đọc nhanh vs Đọc sâu | |
+| ⬜ | Đủ 4 trạng thái async trên mọi màn | |
+
+**Thanh toán**
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | **Gửi lại cùng một webhook 3 lần → credits chỉ cộng 1 lần** | 🔴 Case quan trọng nhất |
+| ⬜ | Chữ ký sai, số tiền sai, đơn hết hạn, hai webhook đồng thời | |
+| ⬜ | Hoàn credits khi AI lỗi | |
+
+**Bảo mật**
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | RLS: đăng nhập 2 tài khoản, thử đọc dữ liệu của nhau bằng anon key | Đừng chỉ đọc code |
+| ⬜ | Thử update `credits` từ client → phải bị trigger chặn | |
+| ⬜ | Rate limit thật sự chặn | |
+| ⬜ | Prompt injection cơ bản | |
+
+**Kiểm duyệt**
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | Câu hỏi khủng hoảng → trang tài nguyên, **không trừ credits** | |
+| ⬜ | Câu hỏi y tế/pháp lý → chuyển hướng, không trừ credits | |
+
+**Design & A11y**
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | 375 / 768 / 1280 / 1920px, không scroll ngang ở bất kỳ width nào | |
+| ⬜ | Cả 2 theme | |
+| ⬜ | Tab qua toàn bộ, focus nhìn thấy được ở mọi nơi | |
+| ⬜ | Zoom 200% không vỡ layout | |
+| ⬜ | Contrast mọi cặp màu mới | |
+| ⬜ | `prefers-reduced-motion` có đường thay thế | |
+| ⬜ | Lighthouse: Performance, Accessibility, SEO | |
+
+### 2.10 Giai đoạn 9 — SEO & Nội dung · 2–3 ngày · 0/5
+
+Chạy song song từ GĐ 5, không nằm trên đường găng.
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | Meta tags, OG image, sitemap.xml, robots.txt | |
+| ⬜ | 78 trang SSG lá bài, nội dung sinh bằng Batch API | ~$1.35 |
+| ⬜ | **Đọc và biên tập nội dung SEO** | Google phạt nội dung sinh hàng loạt |
+| ⬜ | Google Search Console + submit sitemap | Ngoài repo |
+| ⬜ | Schema.org markup | |
+
+### 2.11 Giai đoạn 10 — Deploy · 2 ngày · 0/9
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | Vercel Pro + domain + SSL | Pro bắt buộc khi có thanh toán |
+| ⬜ | Bật Fluid Compute, đặt `maxDuration` | Chống timeout khi stream 3 lá |
+| ⬜ | Supabase **Pro** (không để Free ở production) | Free tự pause sau 7 ngày |
+| ⬜ | Biến môi trường production | Không secret nào mang `NEXT_PUBLIC_` |
+| ⬜ | Chạy batch warm-up nội dung nền trên DB production | |
+| ⬜ | Test toàn bộ luồng trên production (webhook cần URL public) | |
+| ⬜ | Giao dịch thật số tiền nhỏ, đối soát ledger | |
+| ⬜ | Analytics + Sentry production | |
+| ⬜ | Cron: dọn đơn hết hạn, dọn `rate_limits`, backup | |
+
+### 2.12 Giai đoạn 11 — Sau ra mắt · liên tục · 0/5
+
+| ✓ | Đầu việc | Ghi chú |
+|---|---|---|
+| ⬜ | Theo dõi Sentry hàng ngày tuần đầu | |
+| ⬜ | Đối soát `credits` vs `ledger` hàng tuần | Query phải trả 0 dòng |
+| ⬜ | Đối soát chi phí AI thật vs dự toán | Từ `readings.input_tokens` |
+| ⬜ | Thu thập feedback người dùng đầu tiên | |
+| ⬜ | Kiểm tra tỷ lệ `refusal` và `max_tokens` | Dấu hiệu prompt hỏng |
+
+### 2.13 Checklist ngoài timeline — 0/33
+
+33 đầu việc nằm rải trong các file kế hoạch khác. Không thuộc bảng giai đoạn nhưng vẫn là điều kiện để ship.
+
+**Case test webhook — `05 §3.5` · 0/8**
+
+| ✓ | Đầu việc |
+|---|---|
+| ⬜ | Webhook hợp lệ → cộng credits đúng |
+| ⬜ | **Gửi lại đúng webhook đó 3 lần → credits chỉ cộng 1 lần** |
+| ⬜ | Chữ ký sai → 401, không cộng |
+| ⬜ | Số tiền trong webhook khác số tiền đơn → từ chối |
+| ⬜ | `orderCode` không tồn tại → không crash |
+| ⬜ | User hủy giữa chừng → đơn về `cancelled` |
+| ⬜ | Đơn hết hạn 15 phút → về `expired`, webhook đến muộn **không** cộng credits |
+| ⬜ | Hai webhook đến đồng thời → chỉ một cộng được |
+
+**Secret — `06 §1.1` · 0/7**
+
+| ✓ | Đầu việc |
+|---|---|
+| ⬜ | `.env*` nằm trong `.gitignore` — kiểm tra **trước commit đầu tiên** ⚠️ *repo đã đạt, chưa tick* |
+| ⬜ | Không có secret nào mang tiền tố `NEXT_PUBLIC_` ngoài URL và anon key |
+| ⬜ | `SUPABASE_SERVICE_ROLE_KEY` chỉ xuất hiện trong `app/api/**` |
+| ⬜ | `ANTHROPIC_API_KEY` chỉ ở server — **không bao giờ** gọi Claude từ client |
+| ⬜ | `PAYOS_CHECKSUM_KEY` chỉ dùng trong webhook route |
+| ⬜ | Đặt spend limit + email alert trên Anthropic Console |
+| ⬜ | Xoay key nếu từng lộ, kể cả trong commit đã revert |
+
+**Pháp lý cần xác minh sớm — `06 §4.3` · 0/3**
+
+| ✓ | Đầu việc |
+|---|---|
+| ⬜ | **PayOS có yêu cầu đăng ký hộ kinh doanh không?** 🔴 |
+| ⬜ | Nghĩa vụ thuế khi bán dịch vụ số cho người tiêu dùng trong nước |
+| ⬜ | Yêu cầu hóa đơn điện tử (nếu có) |
+
+**Cảnh báo & trần chi tiêu — `07 §7.2` · 0/4**
+
+| ✓ | Đầu việc |
+|---|---|
+| ⬜ | Anthropic Console: spend limit + email alert ở 50% và 80% ngân sách |
+| ⬜ | Vercel: bật spend management, đặt trần |
+| ⬜ | Supabase: bật cảnh báo egress |
+| ⬜ | Sentry: alert khi tỷ lệ `refusal` hoặc `max_tokens` tăng bất thường |
+
+**Ổn định sau launch — `09` · 0/5**
+
+| ✓ | Đầu việc |
+|---|---|
+| ⬜ | Theo dõi Sentry hàng ngày trong 2 tuần đầu |
+| ⬜ | Đối soát `profiles.credits` vs `sum(credit_ledger.delta)` hàng tuần |
+| ⬜ | Đối soát chi phí AI thật vs hóa đơn Anthropic |
+| ⬜ | Đo tỷ lệ `stop_reason: refusal` và `max_tokens` |
+| ⬜ | Kiểm tra `usage.cache_read_input_tokens` — nếu vẫn = 0 thì caching chưa chạy |
+
+**Tối ưu chuyển đổi — `09` · 0/4**
+
+| ✓ | Đầu việc |
+|---|---|
+| ⬜ | Đo phễu: kết quả free → CTA → đăng nhập → chọn gói → thanh toán thành công |
+| ⬜ | A/B vị trí và câu chữ CTA |
+| ⬜ | A/B `claude-sonnet-5` vs `claude-opus-5` cho lớp Cá nhân |
+| ⬜ | Tặng 1 credit miễn phí cho lần đăng ký đầu |
+
+**Chất lượng nội dung — `09` · 0/2**
+
+| ✓ | Đầu việc |
+|---|---|
+| ⬜ | Nút phản hồi "Diễn giải này có đúng không?" dưới mỗi kết quả |
+| ⬜ | Đọc lại 780 đoạn Lớp Nền, sửa những đoạn yếu, chạy lại batch phần cần sửa |
+
+*Nguồn: `Research/plan/08-timeline.md` §3 · `05 §3.5` · `06 §1.1, §4.3` · `07 §7.2` · `09`*
+
+---
+
+## 2b. Ước tính & phương án cắt phạm vi
+
+### Bốn hạng mục hay bị ước lượng thiếu
+
+| Hạng mục | Ngày |
+|---|---|
+| Animation xáo/lật bài với Framer Motion, mượt ở 375px, kèm đường reduced-motion | 2–3 |
+| Rate limit, kiểm duyệt nội dung, trang pháp lý, error tracking, sổ cái credits | 4–5 |
+| Test thanh toán: case webhook trùng, hết hạn, đồng thời | 1–2 |
+| Batch sinh nội dung Lớp Nền: viết prompt, chạy, **đọc và sửa tay** | 2 |
+
+Hạng mục cuối hay bị bỏ qua nhất: không thể ship 780 đoạn văn AI mà chưa đọc qua.
+
+### Ba kịch bản thời gian
+
+| Kịch bản | Thời gian |
+|---|---|
+| Part-time (~5 buổi/tuần), 1 người | **6–8 tuần** |
+| Full-time + AI coding tool | **3–4 tuần** |
+| Part-time, **cắt phạm vi** | **4–5 tuần** |
+
+### Cắt theo thứ tự này, dừng khi đủ
+
+| # | Cắt gì | Tiết kiệm | Đánh đổi |
+|---|---|---|---|
+| 1 | **Bỏ ô nhập câu hỏi tự do ở v1** — chỉ 5 chủ đề cố định | **6–7 ngày** | Gỡ luôn kiểm duyệt, trang khủng hoảng, lớp Cá nhân — nhưng gỡ mất chính điểm khác biệt. Chỉ nên làm nếu v1 để **kiểm chứng nhu cầu** |
+| 2 | Bỏ trải 3 lá, chỉ 1 lá | 2 ngày | Ít lý do trả phí hơn |
+| 3 | Bỏ Google OAuth, chỉ magic link | 1 ngày | Ma sát đăng nhập cao hơn |
+| 4 | Giảm 5 → 3 chủ đề (468 tổ hợp) | 1 ngày | Ít nội dung hơn, tiết kiệm ~$3 batch |
+| 5 | Hoãn 78 trang SEO sang sau launch | 2–3 ngày | Traffic tự nhiên đến chậm hơn vài tháng |
+
+*Nguồn: `Research/plan/08-timeline.md` §1, §5*
 
 ---
 
