@@ -176,7 +176,7 @@
   <section class="hero">
     <h1>Web Tarot AI — Báo cáo dự án</h1>
     <p class="tagline">Báo cáo tiến độ · 10 mục · đối chiếu ngược với repo</p>
-    <div class="meta"><span class="chip">📅 2026-08-02 18:41</span><span class="chip">📁 Nguồn: Research/plan/</span></div>
+    <div class="meta"><span class="chip">📅 2026-08-09 19:31</span><span class="chip">📁 Nguồn: Research/plan/</span></div>
   </section>
 
   <div class="layout">
@@ -186,7 +186,7 @@
     </aside>
     <main>
       <article id="content"><p>Đang render…</p></article>
-      <footer class="gen-footer">Generated 2026-08-02 18:41 · nguồn <code>design/report.md</code> · dữ liệu gốc <code>Research/plan/</code> · regenerate bằng <code>/report</code></footer>
+      <footer class="gen-footer">Generated 2026-08-09 19:31 · nguồn <code>design/report.md</code> · dữ liệu gốc <code>Research/plan/</code> · regenerate bằng <code>/report</code></footer>
     </main>
   </div>
 
@@ -212,14 +212,14 @@ Trang này sinh tự động từ `Research/plan/`. Tiến độ tính bằng s�
 
 | Chỉ số | Giá trị | Ghi chú |
 |---|---|---|
-| Tiến độ tổng | **0%** | 0 / 131 đầu việc |
-| Giai đoạn hiện tại | **Giai đoạn 1** | Nghiên cứu & Chuẩn bị — chưa bắt đầu |
-| Khối lượng còn lại | **33–42 ngày công** | ≈ 6–8 tuần part-time |
-| Blocker chặn timeline | **1** | Xác minh yêu cầu PayOS |
-| Mâu thuẫn tài liệu | **14** | 9 giữa hai bộ tài liệu + 5 nội bộ |
-| Trạng thái stack | **Tĩnh** | Chưa có `package.json` |
+| Tiến độ tổng | **6%** | 8 / 132 đầu việc |
+| Giai đoạn hiện tại | **Giai đoạn 1 ✅ xong (8/8)** | Sẵn sàng chuyển sang Giai đoạn 2 — Thiết kế |
+| Khối lượng còn lại | **~33–42 ngày công** | Giai đoạn 1 (3–4 ngày) đã xong; phần còn lại vẫn ≈ 6–8 tuần part-time |
+| Blocker chặn timeline | **0** | PayOS **không cần Hộ kinh doanh** — xác minh qua nguồn công khai payos.vn (xem §4). Hạ từ 🔴 chặn xuống ⚠️ cần xác nhận bằng tài khoản thật trước GĐ 6 |
+| Mâu thuẫn tài liệu | **5** | 9 điểm với "bản tổng hợp cũ" đã hết hiệu lực — file đó đã bị xóa khỏi working tree (xem §9). Còn 5 mâu thuẫn nội bộ trong bộ `plan/`, chưa ai xử lý |
+| Trạng thái stack | **Tĩnh** | Chưa có `package.json`; đã có `data/cards.json` (78 lá) và `public/cards/` (78 ảnh, 13MB) |
 
-> **Dự án đang ở trạng thái thuần tài liệu.** Toàn bộ 131 checkbox trong `Research/` chưa mục nào được tick, và repo xác nhận điều đó: chưa có `package.json`, chưa có `app/`, `components/`, `lib/`, `data/cards.json` hay `supabase/migrations/`. Kế hoạch và thực tế đang khớp nhau — không có tiến độ nào bị khai khống.
+> **Giai đoạn 1 hoàn tất.** 8/8 đầu việc trong-repo đã xong trong lượt làm việc gần nhất: nghiên cứu 3 đối thủ (`Research/doi-thu-canh-tranh.md`), đối tượng & tone thương hiệu (`Research/doi-tuong-tone-thuong-hieu.md`), `data/cards.json` (78 lá, tự kiểm tra đủ số), 78 ảnh Rider-Waite vào `public/cards/` (Wikimedia Commons, public domain, đã xác minh trực quan), xác minh PayOS và hotline khủng hoảng (`Research/xac-minh-payos-va-hotline.md`). 3 mục ngoài-repo (đăng ký Supabase/Vercel/Anthropic key/domain, spend limit) do người dùng tự xác nhận trong hội thoại — repo không có cách kiểm chứng trực tiếp, xem ⚠️ ở §9.
 
 ### 1.1 Sản phẩm tách hai tầng
 
@@ -242,33 +242,35 @@ Tính bằng số checkbox đã tick trên tổng số checkbox của từng gia
 
 | Giai đoạn | Trạng thái | Tiến độ | Đầu việc | Ngày | Đường găng |
 |---|---|---|---|---|---|
-| 1. Nghiên cứu & Chuẩn bị | ⬜ 🔴 có mục chặn | 0% | 0 / 8 | 3–4 | Có |
+| 1. Nghiên cứu & Chuẩn bị | ✅ xong | 100% | 8 / 8 | 3–4 | Có |
 | 2. Thiết kế | ⬜ chưa bắt đầu | 0% | 0 / 8 | 5–6 | Có |
 | 3. Setup nền tảng | ⬜ chưa bắt đầu | 0% | 0 / 8 | 2–3 | Có |
 | 4. Tính năng cốt lõi | ⬜ chưa bắt đầu | 0% | 0 / 15 | 8–10 | Có |
 | 5. Tài khoản | ⬜ chưa bắt đầu | 0% | 0 / 5 | 2–3 | Có |
 | 6. Thanh toán | ⬜ chưa bắt đầu | 0% | 0 / 8 | 4–5 | Có |
 | 7. Kiểm duyệt & pháp lý | ⬜ chưa bắt đầu | 0% | 0 / 8 | 3–4 | Có |
-| 8. Testing | ⬜ 🔴 có mục chặn | 0% | 0 / 19 | 4–5 | Có |
+| 8. Testing | ⬜ 🔴 có mục chặn | 0% | 0 / 20 | 4–5 | Có |
 | 9. SEO & Nội dung | ⬜ chưa bắt đầu | 0% | 0 / 5 | 2–3 | Song song từ GĐ 5 |
 | 10. Deploy | ⬜ chưa bắt đầu | 0% | 0 / 9 | 2 | Có |
 | 11. Sau ra mắt | ⬜ chưa bắt đầu | 0% | 0 / 5 | Liên tục | — |
-| **Tổng** | | **0%** | **0 / 98** | **33–42** | |
+| **Tổng** | | **8%** | **8 / 99** | **33–42** | |
+
+> Giai đoạn 8 tăng từ 19 → 20 đầu việc: bổ sung 1 mục "trang trải bài không rơi vào pattern CSR-toàn-bộ", rút ra từ nghiên cứu đối thủ (`Research/doi-thu-canh-tranh.md §5`). Cờ 🔴 của Giai đoạn 8 vẫn giữ nguyên — mục "gửi lại cùng một webhook 3 lần" chưa tick, chỉ là chưa tới lượt kiểm (nằm ở GĐ 8, dự án mới xong GĐ 1).
 
 *Nguồn: `Research/plan/08-timeline.md` §3, §4*
 
-### 2.2 Giai đoạn 1 — Nghiên cứu & Chuẩn bị · 3–4 ngày · 0/8
+### 2.2 Giai đoạn 1 — Nghiên cứu & Chuẩn bị · 3–4 ngày · 8/8 ✅
 
 | ✓ | Đầu việc | Ghi chú |
 |---|---|---|
-| ⬜ | Nghiên cứu 3–5 đối thủ cùng ngách — ghi lại họ **tính phí thế nào**, không chỉ giao diện | |
-| ⬜ | Xác định đối tượng, tone thương hiệu | Đầu vào cho GĐ 2 |
-| ⬜ | Chuẩn bị dữ liệu 78 lá (`data/cards.json`): tên, tên Việt, từ khóa xuôi/ngược | Chặn GĐ 4a |
-| ⬜ | Tải bộ ảnh Rider-Waite từ nguồn public domain rõ ràng, resize + tối ưu | Vào `/public/cards/` |
-| ⬜ | **Xác minh yêu cầu PayOS** — có cần HKD không? Nếu có, nộp hồ sơ NGAY | 🔴 **Chặn GĐ 6** |
-| ⬜ | Đăng ký: Supabase, Vercel, Anthropic API key, domain | Ngoài repo |
-| ⬜ | Đặt spend limit trên Anthropic Console | Ngoài repo |
-| ⬜ | Xác minh số hotline hỗ trợ khủng hoảng còn hoạt động | Ngoài repo · kiểm lại mỗi 6 tháng |
+| ✅ | Nghiên cứu 3–5 đối thủ cùng ngách — ghi lại họ **tính phí thế nào**, không chỉ giao diện | 3/3–5: boitarot.com.vn, tarotcuabin.com, boitarot.vn — `Research/doi-thu-canh-tranh.md` |
+| ✅ | Xác định đối tượng, tone thương hiệu | Đầu vào cho GĐ 2 — 3 persona, tone "phản chiếu tâm lý", màu Thổ+Kim — `Research/doi-tuong-tone-thuong-hieu.md` |
+| ✅ | Chuẩn bị dữ liệu 78 lá (`data/cards.json`): tên, tên Việt, từ khóa xuôi/ngược | Chặn GĐ 4a — 78/78, đã tự kiểm tra không trùng id/đủ từ khóa |
+| ✅ | Tải bộ ảnh Rider-Waite từ nguồn public domain rõ ràng, resize + tối ưu | Vào `/public/cards/` — 78/78, Wikimedia Commons (Roses & Lilies 1909, PD), 900px, 13MB, xác minh trực quan |
+| ✅ | **Xác minh yêu cầu PayOS** — có cần HKD không? Nếu có, nộp hồ sơ NGAY | ⚠️ **Không** cần HKD, xác thực bằng CCCD — web-verified qua payos.vn, chưa tạo tài khoản thật. `Research/xac-minh-payos-va-hotline.md §1` |
+| ✅ | Đăng ký: Supabase, Vercel, Anthropic API key, domain | ⚠️ Ngoài repo — người dùng tự xác nhận đã xong, không kiểm chứng được qua repo |
+| ✅ | Đặt spend limit trên Anthropic Console | ⚠️ Ngoài repo — người dùng tự xác nhận đã xong |
+| ✅ | Xác minh số hotline hỗ trợ khủng hoảng còn hoạt động | Ngày Mai (096 306 1414, T4–CN 13:00–20:30) + Tổng đài 111 (24/7) — web-verified, chưa gọi thử, kiểm lại mỗi 6 tháng. `Research/xac-minh-payos-va-hotline.md §2` |
 
 ### 2.3 Giai đoạn 2 — Thiết kế · 5–6 ngày · 0/8
 
@@ -364,7 +366,7 @@ Tính bằng số checkbox đã tick trên tổng số checkbox của từng gia
 | ⬜ | Disclaimer dưới mỗi kết quả trải bài | Contrast ≥ 4.5:1 |
 | ⬜ | Rà soát: không log nội dung câu hỏi vào Sentry/analytics | Chỉ log ID + nhãn |
 
-### 2.9 Giai đoạn 8 — Testing · 4–5 ngày · 0/19
+### 2.9 Giai đoạn 8 — Testing · 4–5 ngày · 0/20
 
 **Chức năng**
 
@@ -409,6 +411,7 @@ Tính bằng số checkbox đã tick trên tổng số checkbox của từng gia
 | ⬜ | Contrast mọi cặp màu mới | |
 | ⬜ | `prefers-reduced-motion` có đường thay thế | |
 | ⬜ | Lighthouse: Performance, Accessibility, SEO | |
+| ⬜ | Trang trải bài không rơi vào pattern CSR-toàn-bộ — nội dung chính SSR/SSG hoặc hiện ngay, không chỉ "Đang tải…" trước khi hydrate | Mới thêm — rút từ điểm yếu quan sát ở tarotcuabin.com, `Research/doi-thu-canh-tranh.md §5` |
 
 ### 2.10 Giai đoạn 9 — SEO & Nội dung · 2–3 ngày · 0/5
 
@@ -595,17 +598,17 @@ flowchart LR
 
 ## 4. Blocker & rủi ro
 
-### 4.1 Hai mục gắn cờ đỏ
+### 4.1 Một mục gắn cờ đỏ còn lại
 
-> 🔴 **Xác minh yêu cầu PayOS — Giai đoạn 1.** PayOS có bắt buộc đăng ký hộ kinh doanh không? Nếu có, đó là 1–2 tuần làm việc với cơ quan nhà nước và sẽ **chặn toàn bộ Giai đoạn 6**. Đây là rủi ro timeline lớn nhất của dự án — phải chạy song song từ ngày 1, đừng để tới lúc code thanh toán mới phát hiện.
+> ✅ **Đã giải quyết — Xác minh yêu cầu PayOS (Giai đoạn 1).** Nghiên cứu qua nguồn công khai payos.vn xác nhận: **KHÔNG bắt buộc Hộ kinh doanh** — cá nhân xác thực bằng CCCD là đủ, đăng ký ~5 phút. Đây là rủi ro timeline lớn nhất dự án trước đây, giờ hạ xuống mức thấp. ⚠️ Vẫn cần tự tạo tài khoản PayOS thật để xác nhận 100% trước Giai đoạn 6 — nghiên cứu công khai không thay thế việc đó. Chi tiết: `Research/xac-minh-payos-va-hotline.md §1`.
 
-> 🔴 **Webhook trùng phải idempotent — Giai đoạn 8.** Gửi lại cùng một webhook 3 lần thì credits chỉ được cộng 1 lần. Nếu chỉ có thời gian test đúng một thứ trong toàn dự án, test cái này — đây là chỗ duy nhất mà một bug làm mất tiền thật.
+> 🔴 **Webhook trùng phải idempotent — Giai đoạn 8.** Gửi lại cùng một webhook 3 lần thì credits chỉ được cộng 1 lần. Nếu chỉ có thời gian test đúng một thứ trong toàn dự án, test cái này — đây là chỗ duy nhất mà một bug làm mất tiền thật. Chưa tới lượt (dự án mới xong GĐ 1) — vẫn là 🔴 duy nhất còn treo.
 
 ### 4.2 Bảng quản lý rủi ro
 
 | Rủi ro | Xác suất | Tác động | Giảm thiểu |
 |---|---|---|---|
-| PayOS yêu cầu hộ kinh doanh | Trung bình | **Chặn GĐ 6** | Xác minh ngày 1, nộp hồ sơ song song |
+| PayOS yêu cầu hộ kinh doanh | ~~Trung bình~~ **Thấp** (đã xác minh qua nguồn công khai: không cần) | ~~Chặn GĐ 6~~ Thấp — vẫn cần xác nhận bằng tài khoản thật | Đã nghiên cứu ở GĐ 1; tạo tài khoản thử trước GĐ 6 để chốt 100% |
 | Chất lượng nội dung Lớp Nền không đạt | Trung bình | Chạy lại batch, mất 1–2 ngày | Sinh thử 20 tổ hợp, duyệt, rồi mới chạy 780 |
 | Animation lag trên mobile đời thấp | Cao | Trải nghiệm cốt lõi kém | Test thiết bị thật từ sớm; chỉ animate `transform`/`opacity` |
 | Vercel timeout khi stream 3 lá | Trung bình | Lỗi giữa chừng | Bật Fluid Compute + `maxDuration=120` từ GĐ 4 |
@@ -783,27 +786,27 @@ Checkbox trong file markdown là **lời khai**, không phải bằng chứng. P
 
 | Hạng mục | Kết luận |
 |---|---|
-| Tick khống — đã tick, repo không có dấu vết | ✅ **0 mục.** 0/131 checkbox được tick và repo cũng không có code — hai bên khớp nhau |
+| Tick khống — đã tick, repo không có dấu vết và không có lý do hợp lệ khác | ✅ **0 mục.** |
+| Đã tick, có dấu vết đầy đủ trong repo | **6/8 mục của Giai đoạn 1**: nghiên cứu đối thủ → `Research/doi-thu-canh-tranh.md`; đối tượng/tone → `Research/doi-tuong-tone-thuong-hieu.md`; 78 lá → `data/cards.json`; 78 ảnh → `public/cards/`; PayOS + hotline → `Research/xac-minh-payos-va-hotline.md` |
+| Đã tick nhưng repo không có dấu vết trực tiếp | **2/8 mục** — "Đăng ký Supabase/Vercel/Anthropic key/domain" và "Spend limit Anthropic Console": dịch vụ ngoài repo, người dùng tự xác nhận trong hội thoại. Ghi theo lời khai, gắn cờ ⚠️ theo đúng quy tắc Step 3 — không có cách kiểm chứng độc lập từ phía repo |
+| Xác minh chưa đạt mức "tài khoản/cuộc gọi thật" | **2 mục**: PayOS (web-verified qua payos.vn, chưa tạo tài khoản thật) và hotline khủng hoảng (web-verified qua nguồn chính thức, chưa gọi thử) — cả hai đã ghi ⚠️ ngay trong `08-timeline.md`, không bị khai khống thành xác minh 100% |
 | Đã làm nhưng chưa tick | **1 mục.** `.env` và `.env.*` đã nằm trong `.gitignore` (có chừa `.env.example`) — mục đầu của checklist secret 06 §1.1 nhưng chưa được đánh dấu |
-| Chưa xác minh được trong repo | **12 mục.** Toàn bộ Giai đoạn 1 (đăng ký Supabase/Vercel/Anthropic/domain, spend limit, xác minh PayOS, xác minh hotline) và 4 mục cảnh báo chi tiêu 07 §7.2 nằm ngoài repo |
-| Trạng thái stack | Chưa có `package.json`. Chưa tồn tại `app/`, `components/`, `lib/`, `data/`, `public/`, `supabase/`. Repo mới có đúng 1 commit |
+| Trạng thái stack | Chưa có `package.json`. Đã có `data/cards.json` và `public/cards/` (78 ảnh). Chưa có `app/`, `components/`, `lib/`, `supabase/`. Repo vẫn chỉ 1 commit (`7a138fa`) — mọi thay đổi ở trên đang nằm trong working tree/staged, **chưa commit** |
 | Thư mục `design/` | Là **git repo riêng** (remote `nts_tarot_design`) và đang bị `.gitignore` của repo gốc loại trừ — commit ở repo gốc **không** bao gồm trang này |
 
-### 9.2 Mâu thuẫn giữa bản tổng hợp cũ và bộ `plan/` — 9 điểm
+### 9.2 Bản tổng hợp cũ — đã bị xóa khỏi working tree
 
-| Chủ đề | Bản tổng hợp nói | Bộ `plan/` nói |
-|---|---|---|
-| Timeline | 4–6 tuần part-time | 6–8 tuần part-time |
-| Schema | Có bảng `cards` + `reading_cache`; không có sổ cái | Không có bảng `cards`; dùng `base_content` + `credit_ledger` + `rate_limits` |
-| Chi phí Phase 2 | $95–125, Claude API ~$50 | $58–88, Claude API ~$12 |
-| Chi phí Phase 3 | $250–700 | $210–456 |
-| Model cho bản free | Haiku 4.5 gọi realtime | $0 API — đọc nội dung Opus 5 sinh sẵn từ Postgres |
-| Giá Sonnet 5 | $2/$10 — giá giới thiệu | $3/$15 — giá chuẩn, tránh hụt ngân sách từ tháng 9 |
-| Chủ đề & tổ hợp | 3 chủ đề, 468 tổ hợp, có chủ đề "băn khoăn cá nhân" | 5 chủ đề, 780 tổ hợp; cấm chủ đề catch-all vì không sinh sẵn được |
-| Runtime backend | "API Routes / Edge Functions" | Node runtime, **không** dùng Edge — SDK cần Node streams |
-| Hạng mục vắng mặt | Không nhắc kiểm duyệt nội dung, trang pháp lý, sổ cái credits | Cả ba nằm trong danh sách "không được cắt trong mọi trường hợp" |
+`Research/tai-lieu-du-an-tarot-tong-hop.md` (nguồn của 9 mâu thuẫn từng ghi ở
+mục này) **không còn tồn tại trên đĩa** — `git status` cho thấy trạng thái
+`D` (deleted, chưa staged/commit). Không rõ đây là xóa chủ động của người
+dùng hay vô tình; `/report` **không tự phục hồi hay tự commit** việc xóa
+theo đúng quy tắc "không tự sửa file kế hoạch".
 
-> Bản tổng hợp **có vẻ** là phiên bản trước của bộ `plan/` — chi tiết ít hơn, chưa có sổ cái và kiểm duyệt. Nhưng nó không ghi ngày và `README.md` không tuyên bố nó đã bị thay thế. Cần một quyết định rõ ràng: đánh dấu là lưu trữ, hoặc hợp nhất — trước khi có người đọc nhầm con số chi phí cũ.
+→ 9 điểm mâu thuẫn từng liệt kê ở đây (timeline, schema, chi phí Phase 2/3,
+model free tier, giá Sonnet 5, chủ đề & tổ hợp, runtime backend, hạng mục
+vắng mặt) **hết đối tượng để đối chiếu** — không còn "bản tổng hợp cũ" để so
+với `plan/`. Cần một quyết định rõ ràng từ người dùng: xác nhận xóa (rồi
+`git rm`/commit cho dứt điểm), hoặc khôi phục nếu đây là xóa nhầm.
 
 ### 9.3 Mâu thuẫn nội bộ trong bộ `plan/` — 5 điểm
 
@@ -821,10 +824,11 @@ Checkbox trong file markdown là **lời khai**, không phải bằng chứng. P
 
 | Thứ tự | Việc | Vì sao bây giờ |
 |---|---|---|
-| 1 | Gọi PayOS hỏi yêu cầu hộ kinh doanh | Chặn GĐ 6, và nếu cần hồ sơ thì mất 1–2 tuần chạy song song — mỗi ngày trễ là một ngày trễ ngày ra mắt |
-| 2 | Chốt số phận bản tổng hợp cũ | 9 điểm mâu thuẫn đang chờ ai đó đọc nhầm con số chi phí hoặc schema |
-| 3 | Thống nhất 5 con số lệch trong bộ `plan/` | Rẻ để sửa bây giờ, đắt khi đã lập ngân sách theo số sai |
-| 4 | Bắt đầu Giai đoạn 1 | Không phụ thuộc gì, và mở khóa cả hai nhánh Thiết kế lẫn Setup |
+| 1 | Tạo tài khoản PayOS thật bằng CCCD để xác nhận 100% | Nghiên cứu công khai đã hạ rủi ro xuống thấp, nhưng chưa test tài khoản thật — rẻ (miễn phí, ~5 phút), nên làm trước khi cam kết tích hợp ở GĐ 6 |
+| 2 | Quyết định số phận `Research/tai-lieu-du-an-tarot-tong-hop.md` (đã xóa khỏi working tree, chưa commit) | Xóa dở dang — cần xác nhận chủ động rồi commit, hoặc khôi phục nếu xóa nhầm, trước khi ai đó commit nhầm trạng thái |
+| 3 | Thống nhất 5 con số lệch nội bộ trong bộ `plan/` | Rẻ để sửa bây giờ, đắt khi Giai đoạn 2–3 đã lập ngân sách/schema theo số sai |
+| 4 | Bắt đầu Giai đoạn 2 — Thiết kế | Giai đoạn 1 đã xong 8/8; đã có input đối tượng/tone + bảng màu Thổ+Kim để bắt đầu định nghĩa design token |
+| 5 | Commit các file mới của Giai đoạn 1 vào git | `data/cards.json`, `public/cards/` (78 ảnh), 3 file `Research/*.md` mới và `08-timeline.md` đã sửa vẫn ngoài lịch sử commit (repo mới có 1 commit) — rủi ro mất việc nếu máy có sự cố |
 </script>
 
   <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
