@@ -176,7 +176,7 @@
   <section class="hero">
     <h1>Web Tarot AI — Báo cáo dự án</h1>
     <p class="tagline">Báo cáo tiến độ · 10 mục · đối chiếu ngược với repo</p>
-    <div class="meta"><span class="chip">📅 2026-08-09 19:31</span><span class="chip">📁 Nguồn: Research/plan/</span></div>
+    <div class="meta"><span class="chip">📅 2026-08-09 21:11</span><span class="chip">📁 Nguồn: Research/plan/</span></div>
   </section>
 
   <div class="layout">
@@ -186,7 +186,7 @@
     </aside>
     <main>
       <article id="content"><p>Đang render…</p></article>
-      <footer class="gen-footer">Generated 2026-08-09 19:31 · nguồn <code>design/report.md</code> · dữ liệu gốc <code>Research/plan/</code> · regenerate bằng <code>/report</code></footer>
+      <footer class="gen-footer">Generated 2026-08-09 21:11 · nguồn <code>design/report.md</code> · dữ liệu gốc <code>Research/plan/</code> · regenerate bằng <code>/report</code></footer>
     </main>
   </div>
 
@@ -212,14 +212,16 @@ Trang này sinh tự động từ `Research/plan/`. Tiến độ tính bằng s�
 
 | Chỉ số | Giá trị | Ghi chú |
 |---|---|---|
-| Tiến độ tổng | **6%** | 8 / 132 đầu việc |
-| Giai đoạn hiện tại | **Giai đoạn 1 ✅ xong (8/8)** | Sẵn sàng chuyển sang Giai đoạn 2 — Thiết kế |
+| Tiến độ tổng | **12%** | 16 / 132 đầu việc |
+| Giai đoạn hiện tại | **Giai đoạn 1 + 2 ✅ xong (16/16)** | Sẵn sàng chuyển sang Giai đoạn 3 — Setup nền tảng. Giai đoạn 2 vừa được xác nhận và tick — xem §9.1b để đối chiếu từng mục với file bằng chứng trong `production/` |
 | Khối lượng còn lại | **~33–42 ngày công** | Giai đoạn 1 (3–4 ngày) đã xong; phần còn lại vẫn ≈ 6–8 tuần part-time |
 | Blocker chặn timeline | **0** | PayOS **không cần Hộ kinh doanh** — xác minh qua nguồn công khai payos.vn (xem §4). Hạ từ 🔴 chặn xuống ⚠️ cần xác nhận bằng tài khoản thật trước GĐ 6 |
 | Mâu thuẫn tài liệu | **5** | 9 điểm với "bản tổng hợp cũ" đã hết hiệu lực — file đó đã bị xóa khỏi working tree (xem §9). Còn 5 mâu thuẫn nội bộ trong bộ `plan/`, chưa ai xử lý |
-| Trạng thái stack | **Tĩnh** | Chưa có `package.json`; đã có `data/cards.json` (78 lá) và `public/cards/` (78 ảnh, 13MB) |
+| Trạng thái stack | **Tĩnh** | Chưa có `package.json`; đã có `data/cards.json` (78 lá), `public/cards/` (78 ảnh, 13MB), và từ lượt làm việc này: `production/` (design system + 4 prototype HTML/CSS tương tác) |
 
-> **Giai đoạn 1 hoàn tất.** 8/8 đầu việc trong-repo đã xong trong lượt làm việc gần nhất: nghiên cứu 3 đối thủ (`Research/doi-thu-canh-tranh.md`), đối tượng & tone thương hiệu (`Research/doi-tuong-tone-thuong-hieu.md`), `data/cards.json` (78 lá, tự kiểm tra đủ số), 78 ảnh Rider-Waite vào `public/cards/` (Wikimedia Commons, public domain, đã xác minh trực quan), xác minh PayOS và hotline khủng hoảng (`Research/xac-minh-payos-va-hotline.md`). 3 mục ngoài-repo (đăng ký Supabase/Vercel/Anthropic key/domain, spend limit) do người dùng tự xác nhận trong hội thoại — repo không có cách kiểm chứng trực tiếp, xem ⚠️ ở §9.
+> **Giai đoạn 1 hoàn tất.** 8/8 đầu việc trong-repo đã xong: nghiên cứu 3 đối thủ (`Research/doi-thu-canh-tranh.md`), đối tượng & tone thương hiệu (`Research/doi-tuong-tone-thuong-hieu.md`), `data/cards.json` (78 lá, tự kiểm tra đủ số), 78 ảnh Rider-Waite vào `public/cards/` (Wikimedia Commons, public domain, đã xác minh trực quan), xác minh PayOS và hotline khủng hoảng (`Research/xac-minh-payos-va-hotline.md`). 3 mục ngoài-repo (đăng ký Supabase/Vercel/Anthropic key/domain, spend limit) do người dùng tự xác nhận trong hội thoại — repo không có cách kiểm chứng trực tiếp, xem ⚠️ ở §9. Toàn bộ đã được commit vào `e3312b3` ("+phase 1").
+>
+> **Giai đoạn 2 — Thiết kế: hoàn tất, đã xác nhận và tick 8/8.** `production/` có đủ token, wireframe 6 màn, 2 prototype tương tác đầy đủ + 2 mockup chi tiết, storyboard animation + đường reduced-motion, luồng QR 5 trạng thái, audit contrast bằng số liệu WCAG thật. Đã chạy `/design-review` với 2 agent (design-system-guardian + a11y-auditor) song song, tìm 13 finding (3 🔴 chặn — live-region spam khi stream chữ AI, `role="timer"` đọc từng giây, thiếu `&lt;h1&gt;`; 10 🟡) và **đã fix hết**, verify lại bằng Playwright (console sạch, heading order đúng, aria-label đúng, reduced-motion thật qua context `reducedMotion:"reduce"` chứ không chỉ nút demo). Chi tiết từng mục đối chiếu file bằng chứng ở §9.1b.
 
 ### 1.1 Sản phẩm tách hai tầng
 
@@ -243,7 +245,7 @@ Tính bằng số checkbox đã tick trên tổng số checkbox của từng gia
 | Giai đoạn | Trạng thái | Tiến độ | Đầu việc | Ngày | Đường găng |
 |---|---|---|---|---|---|
 | 1. Nghiên cứu & Chuẩn bị | ✅ xong | 100% | 8 / 8 | 3–4 | Có |
-| 2. Thiết kế | ⬜ chưa bắt đầu | 0% | 0 / 8 | 5–6 | Có |
+| 2. Thiết kế | ✅ xong | 100% | 8 / 8 | 5–6 | Có |
 | 3. Setup nền tảng | ⬜ chưa bắt đầu | 0% | 0 / 8 | 2–3 | Có |
 | 4. Tính năng cốt lõi | ⬜ chưa bắt đầu | 0% | 0 / 15 | 8–10 | Có |
 | 5. Tài khoản | ⬜ chưa bắt đầu | 0% | 0 / 5 | 2–3 | Có |
@@ -253,7 +255,7 @@ Tính bằng số checkbox đã tick trên tổng số checkbox của từng gia
 | 9. SEO & Nội dung | ⬜ chưa bắt đầu | 0% | 0 / 5 | 2–3 | Song song từ GĐ 5 |
 | 10. Deploy | ⬜ chưa bắt đầu | 0% | 0 / 9 | 2 | Có |
 | 11. Sau ra mắt | ⬜ chưa bắt đầu | 0% | 0 / 5 | Liên tục | — |
-| **Tổng** | | **8%** | **8 / 99** | **33–42** | |
+| **Tổng** | | **16%** | **16 / 99** | **33–42** | |
 
 > Giai đoạn 8 tăng từ 19 → 20 đầu việc: bổ sung 1 mục "trang trải bài không rơi vào pattern CSR-toàn-bộ", rút ra từ nghiên cứu đối thủ (`Research/doi-thu-canh-tranh.md §5`). Cờ 🔴 của Giai đoạn 8 vẫn giữ nguyên — mục "gửi lại cùng một webhook 3 lần" chưa tick, chỉ là chưa tới lượt kiểm (nằm ở GĐ 8, dự án mới xong GĐ 1).
 
@@ -272,18 +274,18 @@ Tính bằng số checkbox đã tick trên tổng số checkbox của từng gia
 | ✅ | Đặt spend limit trên Anthropic Console | ⚠️ Ngoài repo — người dùng tự xác nhận đã xong |
 | ✅ | Xác minh số hotline hỗ trợ khủng hoảng còn hoạt động | Ngày Mai (096 306 1414, T4–CN 13:00–20:30) + Tổng đài 111 (24/7) — web-verified, chưa gọi thử, kiểm lại mỗi 6 tháng. `Research/xac-minh-payos-va-hotline.md §2` |
 
-### 2.3 Giai đoạn 2 — Thiết kế · 5–6 ngày · 0/8
+### 2.3 Giai đoạn 2 — Thiết kế · 5–6 ngày · 8/8 ✅
 
 | ✓ | Đầu việc | Ghi chú |
 |---|---|---|
-| ⬜ | Định nghĩa design token: màu, spacing, type scale, radius, shadow, z-index | Chặn GĐ 3 |
-| ⬜ | Wireframe: trang chủ, chọn chủ đề, trải bài, kết quả, cá nhân, nạp credits | |
-| ⬜ | Thiết kế UI chi tiết (mood huyền bí, hiện đại) — **cả 2 theme nếu có dark/light** | |
-| ⬜ | Thiết kế animation xáo/lật bài: storyboard timing, easing, thứ tự | 2–3 ngày, hay bị ước thiếu |
-| ⬜ | Thiết kế đường **không-animation** cho `prefers-reduced-motion` | Không được cắt |
-| ⬜ | Thiết kế luồng thanh toán QR (đủ 5 trạng thái) | 05 §6 |
-| ⬜ | Thiết kế 4 trạng thái async cho mọi màn load dữ liệu | 01 §4 |
-| ⬜ | Kiểm tra contrast mọi cặp màu — nền tối + chữ vàng/tím rất dễ trượt | |
+| ✅ | Định nghĩa design token: màu, spacing, type scale, radius, shadow, z-index | `production/tokens.css` — Thổ+Kim 2 theme, đã kiểm WCAG |
+| ✅ | Wireframe: trang chủ, chọn chủ đề, trải bài, kết quả, cá nhân, nạp credits | `production/wireframes.md` |
+| ✅ | Thiết kế UI chi tiết (mood huyền bí, hiện đại) — **cả 2 theme nếu có dark/light** | `production/prototype/{home,reading}.html` (tương tác đầy đủ) + `{profile,topup}.html` (mockup chi tiết) |
+| ✅ | Thiết kế animation xáo/lật bài: storyboard timing, easing, thứ tự | `production/animation-storyboard.md` + implement ở `reading.html` |
+| ✅ | Thiết kế đường **không-animation** cho `prefers-reduced-motion` | Verify bằng `reducedMotion:"reduce"` thật, không chỉ nút demo |
+| ✅ | Thiết kế luồng thanh toán QR (đủ 5 trạng thái) | `production/prototype/topup.html` — 05 §6 |
+| ✅ | Thiết kế 4 trạng thái async cho mọi màn load dữ liệu | `profile.html` đủ 4; `reading.html` 3 trạng thái (không có "empty" thật) — 01 §4 |
+| ✅ | Kiểm tra contrast mọi cặp màu — nền tối + chữ vàng/tím rất dễ trượt | `production/contrast-audit.md` — số liệu WCAG thật, tất cả pass. ⚠️ Đã qua `/design-review`, fix 13 finding; chưa test screen reader thật |
 
 ### 2.4 Giai đoạn 3 — Setup nền tảng · 2–3 ngày · 0/8
 
@@ -787,26 +789,58 @@ Checkbox trong file markdown là **lời khai**, không phải bằng chứng. P
 | Hạng mục | Kết luận |
 |---|---|
 | Tick khống — đã tick, repo không có dấu vết và không có lý do hợp lệ khác | ✅ **0 mục.** |
-| Đã tick, có dấu vết đầy đủ trong repo | **6/8 mục của Giai đoạn 1**: nghiên cứu đối thủ → `Research/doi-thu-canh-tranh.md`; đối tượng/tone → `Research/doi-tuong-tone-thuong-hieu.md`; 78 lá → `data/cards.json`; 78 ảnh → `public/cards/`; PayOS + hotline → `Research/xac-minh-payos-va-hotline.md` |
+| Đã tick, có dấu vết đầy đủ trong repo | **6/8 mục của Giai đoạn 1**: nghiên cứu đối thủ → `Research/doi-thu-canh-tranh.md`; đối tượng/tone → `Research/doi-tuong-tone-thuong-hieu.md`; 78 lá → `data/cards.json`; 78 ảnh → `public/cards/`; PayOS + hotline → `Research/xac-minh-payos-va-hotline.md`. **8/8 mục của Giai đoạn 2**: toàn bộ `production/` — xem bảng đối chiếu đầy đủ ở §9.1b |
 | Đã tick nhưng repo không có dấu vết trực tiếp | **2/8 mục** — "Đăng ký Supabase/Vercel/Anthropic key/domain" và "Spend limit Anthropic Console": dịch vụ ngoài repo, người dùng tự xác nhận trong hội thoại. Ghi theo lời khai, gắn cờ ⚠️ theo đúng quy tắc Step 3 — không có cách kiểm chứng độc lập từ phía repo |
 | Xác minh chưa đạt mức "tài khoản/cuộc gọi thật" | **2 mục**: PayOS (web-verified qua payos.vn, chưa tạo tài khoản thật) và hotline khủng hoảng (web-verified qua nguồn chính thức, chưa gọi thử) — cả hai đã ghi ⚠️ ngay trong `08-timeline.md`, không bị khai khống thành xác minh 100% |
 | Đã làm nhưng chưa tick | **1 mục.** `.env` và `.env.*` đã nằm trong `.gitignore` (có chừa `.env.example`) — mục đầu của checklist secret 06 §1.1 nhưng chưa được đánh dấu |
-| Trạng thái stack | Chưa có `package.json`. Đã có `data/cards.json` và `public/cards/` (78 ảnh). Chưa có `app/`, `components/`, `lib/`, `supabase/`. Repo vẫn chỉ 1 commit (`7a138fa`) — mọi thay đổi ở trên đang nằm trong working tree/staged, **chưa commit** |
+| Trạng thái stack | Chưa có `package.json`. Đã có `data/cards.json` và `public/cards/` (78 ảnh). Chưa có `app/`, `components/`, `lib/`, `supabase/`. Repo có **2 commit** (`7a138fa` "*init prj", `e3312b3` "+phase 1") — toàn bộ file Giai đoạn 1 (kể cả `08-timeline.md` đã sửa và xóa `tai-lieu-du-an-tarot-tong-hop.md`) **đã commit** trong `e3312b3`. Cập nhật so với lần `/report` trước: lúc đó report.md được sinh **trước** khi `e3312b3` tồn tại nên còn ghi "chưa commit" — nay đã lỗi thời, sửa lại ở đây |
 | Thư mục `design/` | Là **git repo riêng** (remote `nts_tarot_design`) và đang bị `.gitignore` của repo gốc loại trừ — commit ở repo gốc **không** bao gồm trang này |
+| File mới ngoài `Research/plan/` chưa commit | `.gitignore` (sửa: thêm `CLAUDE.local.md`, ghi rõ lý do ignore `design`), `.claude/brain/` (task + plan của `/plan`→`/execute`), `production/` (toàn bộ deliverable Giai đoạn 2) — xem `git status` hiện tại |
 
-### 9.2 Bản tổng hợp cũ — đã bị xóa khỏi working tree
+### 9.1b Giai đoạn 2 — Thiết kế: đối chiếu 8/8 đầu việc với `production/`
+
+Cả 8 đầu việc của Giai đoạn 2 (`08-timeline.md §3`) đã được người dùng xác
+nhận và **✅ tick** sau khi `/report` lần trước nêu bằng chứng — đúng quy
+trình: `/report` chỉ đối chiếu và nêu ra, người dùng là bên quyết định tick
+vào file kế hoạch. Bảng dưới đây giữ lại làm hồ sơ đối chiếu 1-1 giữa đầu
+việc và file bằng chứng:
+
+| Đầu việc (nguyên văn 08-timeline.md) | Bằng chứng trong repo |
+|---|---|
+| Định nghĩa design token: màu, spacing, type scale, radius, shadow, z-index | `production/tokens.css` — màu Thổ+Kim 2 theme (đã kiểm WCAG), spacing 4/8/12/16/24/32/48/64, type scale role-based, radius/shadow/z-index/motion đủ token |
+| Wireframe: trang chủ, chọn chủ đề, trải bài, kết quả, cá nhân, nạp credits | `production/wireframes.md` — low-fi cả 6 màn |
+| Thiết kế UI chi tiết (mood huyền bí, hiện đại) — cả 2 theme | `production/prototype/{home,reading}.html` (tương tác đầy đủ) + `{profile,topup}.html` (mockup tĩnh chi tiết) — cả 4 đều có toggle 2 theme |
+| Thiết kế animation xáo/lật bài: storyboard timing, easing, thứ tự | `production/animation-storyboard.md` + implement thật ở `reading.html` (shuffle 1100ms → draw 400ms → flip 560ms + shimmer Kim) |
+| Thiết kế đường không-animation cho `prefers-reduced-motion` | `reading.html` — cross-fade opacity thay vì xoay 3D; verify bằng Playwright context `reducedMotion:"reduce"` (giả lập OS thật, không chỉ nút demo) — bắt được và fix 1 bug (thiếu `@media` cho OS thật) |
+| Thiết kế luồng thanh toán QR (đủ 5 trạng thái) | `production/prototype/topup.html` — loading / chờ thanh toán (đếm ngược thật) / hết hạn / đã thanh toán / lỗi |
+| Thiết kế 4 trạng thái async cho mọi màn load dữ liệu | `profile.html` (lịch sử trải bài + giao dịch, đủ 4), `reading.html` (3 trạng thái hữu dụng — không có "empty" thật, có ghi chú lý do trong `wireframes.md`) |
+| Kiểm tra contrast mọi cặp màu — nền tối + chữ vàng/tím rất dễ trượt | `production/contrast-audit.md` — số liệu WCAG thật (công thức relative luminance), tất cả cặp đang dùng đều pass cả 2 theme |
+
+**Đã qua review**: `/design-review` chạy 2 agent song song
+(`design-system-guardian`, `a11y-auditor`) trên toàn bộ `production/`, ra
+13 finding (3 🔴, 10 🟡) — đã fix hết, verify lại bằng Playwright (console
+sạch ở 4 trang × 2 theme × 4 width, heading order đúng, aria-label/live-region
+đúng, state-switcher hoạt động qua helper dùng chung). Chi tiết đầy đủ ở
+`.claude/brain/phase-2-thiet-ke/task.md`.
+
+**Chưa làm dù không thuộc 8 đầu việc GĐ2**: chưa commit vào git (xem bảng
+§9.1 trên); giá 2/3 gói credits vẫn là placeholder (chỉ có 129.000đ/30
+credits là số thật, xem `07-du-toan-chi-phi.md`); chưa test bằng screen
+reader thật (chỉ verify tĩnh qua code + Playwright).
+
+### 9.2 Bản tổng hợp cũ — đã xử lý xong (committed)
 
 `Research/tai-lieu-du-an-tarot-tong-hop.md` (nguồn của 9 mâu thuẫn từng ghi ở
-mục này) **không còn tồn tại trên đĩa** — `git status` cho thấy trạng thái
-`D` (deleted, chưa staged/commit). Không rõ đây là xóa chủ động của người
-dùng hay vô tình; `/report` **không tự phục hồi hay tự commit** việc xóa
-theo đúng quy tắc "không tự sửa file kế hoạch".
+mục này) đã được **xóa và commit** trong `e3312b3` ("+phase 1") — không còn
+ở trạng thái xóa-dở-dang như lần `/report` trước ghi nhận. Nội dung cũ vẫn
+truy xuất được qua lịch sử git (`git show 7a138fa:Research/tai-lieu-du-an-tarot-tong-hop.md`)
+nếu cần đối chiếu lại, nhưng không còn là file "đang treo" cần quyết định.
 
 → 9 điểm mâu thuẫn từng liệt kê ở đây (timeline, schema, chi phí Phase 2/3,
 model free tier, giá Sonnet 5, chủ đề & tổ hợp, runtime backend, hạng mục
-vắng mặt) **hết đối tượng để đối chiếu** — không còn "bản tổng hợp cũ" để so
-với `plan/`. Cần một quyết định rõ ràng từ người dùng: xác nhận xóa (rồi
-`git rm`/commit cho dứt điểm), hoặc khôi phục nếu đây là xóa nhầm.
+vắng mặt) vẫn **hết đối tượng để đối chiếu** ở hiện tại — bản tổng hợp cũ
+không còn trên working tree — nhưng đây giờ là trạng thái đã chốt, không
+phải việc còn treo.
 
 ### 9.3 Mâu thuẫn nội bộ trong bộ `plan/` — 5 điểm
 
@@ -824,11 +858,11 @@ với `plan/`. Cần một quyết định rõ ràng từ người dùng: xác n
 
 | Thứ tự | Việc | Vì sao bây giờ |
 |---|---|---|
-| 1 | Tạo tài khoản PayOS thật bằng CCCD để xác nhận 100% | Nghiên cứu công khai đã hạ rủi ro xuống thấp, nhưng chưa test tài khoản thật — rẻ (miễn phí, ~5 phút), nên làm trước khi cam kết tích hợp ở GĐ 6 |
-| 2 | Quyết định số phận `Research/tai-lieu-du-an-tarot-tong-hop.md` (đã xóa khỏi working tree, chưa commit) | Xóa dở dang — cần xác nhận chủ động rồi commit, hoặc khôi phục nếu xóa nhầm, trước khi ai đó commit nhầm trạng thái |
-| 3 | Thống nhất 5 con số lệch nội bộ trong bộ `plan/` | Rẻ để sửa bây giờ, đắt khi Giai đoạn 2–3 đã lập ngân sách/schema theo số sai |
-| 4 | Bắt đầu Giai đoạn 2 — Thiết kế | Giai đoạn 1 đã xong 8/8; đã có input đối tượng/tone + bảng màu Thổ+Kim để bắt đầu định nghĩa design token |
-| 5 | Commit các file mới của Giai đoạn 1 vào git | `data/cards.json`, `public/cards/` (78 ảnh), 3 file `Research/*.md` mới và `08-timeline.md` đã sửa vẫn ngoài lịch sử commit (repo mới có 1 commit) — rủi ro mất việc nếu máy có sự cố |
+| 1 | Commit `production/`, `.claude/brain/phase-2-thiet-ke/`, `08-timeline.md` (đã tick GĐ2), `.gitignore` (đã sửa), `CLAUDE.local.md` vào git | Toàn bộ đang ở working tree, chưa commit — rủi ro mất việc nếu máy có sự cố, giống tình huống Giai đoạn 1 từng gặp trước khi có `e3312b3` |
+| 2 | Tạo tài khoản PayOS thật bằng CCCD để xác nhận 100% | Nghiên cứu công khai đã hạ rủi ro xuống thấp, nhưng chưa test tài khoản thật — rẻ (miễn phí, ~5 phút), nên làm trước khi cam kết tích hợp ở GĐ 6 |
+| 3 | Thống nhất 5 con số lệch nội bộ trong bộ `plan/` (§9.3) | Rẻ để sửa bây giờ, đắt khi Giai đoạn 3 đã lập schema hay Giai đoạn 6 đã lập ngân sách theo số sai |
+| 4 | Bắt đầu Giai đoạn 3 — Setup nền tảng (khởi tạo Next.js + Tailwind, port token từ `production/tokens.css` sang `tailwind.config`) | Giai đoạn 1 + 2 đã xong 16/16 — đủ điều kiện setup nền tảng |
+| 5 | Chốt giá 2/3 gói credits còn lại (chỉ có 129.000đ/30 credits là số thật) | `production/prototype/topup.html` đang để placeholder rõ ràng trong code — cần trước khi build UI thật ở GĐ 4/6 |
 </script>
 
   <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
