@@ -177,7 +177,7 @@
   <section class="hero">
     <h1>Web Tarot AI — Báo cáo dự án</h1>
     <p class="tagline">Báo cáo tiến độ · 10 mục · đối chiếu ngược với repo</p>
-    <div class="meta"><span class="chip">📅 2026-08-19 18:23</span><span class="chip">📁 Nguồn: Research/plan/</span></div>
+    <div class="meta"><span class="chip">📅 2026-08-27 17:16</span><span class="chip">📁 Nguồn: Research/plan/</span></div>
   </section>
 
   <div class="layout">
@@ -187,7 +187,7 @@
     </aside>
     <main>
       <article id="content"><p>Đang render…</p></article>
-      <footer class="gen-footer">Generated 2026-08-19 18:23 · nguồn <code>design/report.md</code> · dữ liệu gốc <code>Research/plan/</code> · regenerate bằng <code>/report</code></footer>
+      <footer class="gen-footer">Generated 2026-08-27 17:16 · nguồn <code>design/report.md</code> · dữ liệu gốc <code>Research/plan/</code> · regenerate bằng <code>/report</code></footer>
     </main>
   </div>
 
@@ -213,12 +213,12 @@ Trang này sinh tự động từ `Research/plan/`. Tiến độ tính bằng s�
 
 | Chỉ số | Giá trị | Ghi chú |
 |---|---|---|
-| Tiến độ tổng | **~27%** | 38 / 138 đầu việc theo checkbox (`08-timeline.md` + 5 checklist ngoài timeline). ⚠️ Thấp hơn thực tế đáng kể — Giai đoạn 4c code xong (giờ còn cả 1 vòng redesign UI đáng kể) nhưng chưa tick, Giai đoạn 6 gần xong nhưng vẫn 0/8 trên giấy. Xem §9 |
-| Giai đoạn hiện tại | **Giai đoạn 6 ✅ code+DB xong theo repo, 0/8 theo checkbox** · Giai đoạn 4c ✅ code xong theo repo nhưng 🔴 chặn bởi key AI sai, 0/10 theo checkbox · Giai đoạn 5 ✅ 5/5 | Cả hai giai đoạn 4c và 6 đã có bằng chứng đầy đủ trong repo nhưng `08-timeline.md` chưa được tick — nêu chi tiết ở §9.1d/§9.1e |
-| Khối lượng còn lại | **~10–14 ngày công** | GĐ1–5 xong (~24–29 ngày); GĐ4c + GĐ6 code xong, chỉ còn hoàn thiện verify (4c cần key AI đúng trước khi verify được nốt, webhook thật GĐ6 hoãn có lý do); còn nguyên GĐ7–10 (~12–15 ngày, GĐ9 song song) |
-| Blocker chặn timeline | **1 chặn kỹ thuật thật + 1 rủi ro vệ sinh repo** | 🔴 **`ANTHROPIC_API_KEY` trong `.env.local` không hợp lệ** (Anthropic API trả `401 "API key is invalid"`) — chặn toàn bộ luồng AI của Giai đoạn 4c (shuffle/reveal/personal), vẫn chưa có xác nhận đã sửa tính tới cuối phiên 2026-08-19. ⚠️ **`src/app/api/dev-mint-token/` (route bypass kiểm duyệt AI, untracked) và toàn bộ redesign `CardSpreadPicker` (7 revision, §9.1d) hiện chưa commit** — không phải blocker timeline nhưng là rủi ro thật (mất việc nếu sự cố, bypass lẫn vào production nếu quên xoá). PayOS **hết chặn**: đã tạo tài khoản thật, có credentials, verify tạo đơn thành công — chỉ còn 1 rủi ro đã hạ cấp: webhook thật GĐ6 chưa test đầu-cuối, **hoãn theo lựa chọn chủ động của user** (không phải bị chặn) |
-| Mâu thuẫn tài liệu | **5** | 9 điểm với "bản tổng hợp cũ" đã hết hiệu lực (xem §9). Còn 5 mâu thuẫn nội bộ trong bộ `plan/`, chưa ai xử lý |
-| Trạng thái stack | **Next.js 16 + Tailwind v4 + Supabase (RLS+RPC thật) + Sentry + PayOS (`@payos/node`) + `qrcode`** | `pnpm lint`/`typecheck`/`build` xanh. Supabase project thật (`credit_order` đã migrate lên chữ ký mới, đã vá 1 lỗ hổng `PUBLIC EXECUTE` phát hiện lúc verify — xem §9). **11 commit** trên `main`, mới nhất `c2abf40` ("*phase 6") |
+| Tiến độ tổng | **~40%** | 55 / 138 đầu việc theo checkbox (`08-timeline.md` + 5 checklist ngoài timeline). Nhảy từ ~27% lần trước — user đã tự tick lại 4c (10/11) và phần lớn Giai đoạn 6 (7/8) trong `08-timeline.md`, khớp đúng với bằng chứng repo đã ghi ở §9.1d/§9.1e lần trước |
+| Giai đoạn hiện tại | **Giai đoạn 4c ✅ 10/11 (chỉ còn đo token thật)** · **Giai đoạn 6 ✅ 7/8 (chỉ còn query đối soát + webhook thật)** · Giai đoạn 7 (Kiểm duyệt & pháp lý) chưa bắt đầu — kế tiếp trên đường găng | 🔴 chặn kỹ thuật của 4c (key AI sai) đã được **vòng qua bằng hạ tầng multi-provider mới** (xem dưới) — không còn chặn toàn bộ luồng AI, chỉ còn chặn riêng path Anthropic. Chi tiết ở §9.1d |
+| Khối lượng còn lại | **~9–13 ngày công** | GĐ1–5 xong; GĐ4c + GĐ6 chỉ còn lặt vặt (đo token, đối soát, webhook thật); còn nguyên GĐ7–10 (~12–15 ngày, GĐ9 song song) — giảm nhẹ so với ước tính trước vì 4c/6 đã đóng gần hết |
+| Blocker chặn timeline | **0 chặn kỹ thuật cứng** · 2 rủi ro vệ sinh repo | 🔴 cũ (`ANTHROPIC_API_KEY` 401) **đã vòng qua**: thêm hạ tầng multi-provider (`AI_PROVIDER`/`TRIAGE_AI_PROVIDER` — chọn Anthropic/OpenAI/Gemini độc lập cho Lớp Cá nhân và bước kiểm duyệt), verify thành công đầu-cuối với Gemini thật (459 từ, đúng yêu cầu 350–450, không lệch chủ đề). **Path Anthropic riêng vẫn chưa xác nhận đã sửa key** — không còn là blocker vì đã có provider khác chạy được, nhưng vẫn nên sửa trước khi coi 4c/6 là "xong hẳn" nếu muốn dùng Anthropic làm mặc định production. `src/app/api/dev-mint-token/` (route bypass) **đã xoá hẳn** — rủi ro cũ đóng. ⚠️ **2 rủi ro còn lại**: (1) toàn bộ việc phiên này (multi-provider AI, 4 bug thật đã vá, trang xem chi tiết lịch sử, entry point Đọc sâu từ home) **vẫn chưa commit** — khối lượng uncommitted lớn hơn cả lần trước; (2) `boytran1105@gmail.com` — tài khoản test thật (xác nhận là của user) vẫn còn trong `auth.users`, không theo đúng rule "xoá sạch sau verify" nhưng user đã chủ động giữ lại |
+| Mâu thuẫn tài liệu | **5** | Không đổi — 5 mâu thuẫn nội bộ trong bộ `plan/`, chưa ai xử lý (xem §9.3) |
+| Trạng thái stack | **Next.js 16 + Tailwind v4 + Supabase (RLS+RPC thật) + Sentry + PayOS (`@payos/node`) + `qrcode`** · **AI đa nhà cung cấp: Anthropic + OpenAI + Gemini** (`@anthropic-ai/sdk`, `openai`, `@google/genai`) | `pnpm lint`/`typecheck`/`build` xanh. Supabase project thật. Commit gần nhất trên `main`: `a584e61` ("*fix") — mới hơn `c2abf40` ghi ở lần `/report` trước; khối lượng uncommitted của phiên này (multi-provider AI, bugfix, trang lịch sử chi tiết) còn lớn hơn cả phần chưa commit trước đó |
 
 > **Giai đoạn 1–3: hoàn tất, không đổi từ lần `/report` trước** — xem §9.1b/§9.1c cho chi tiết đối chiếu file bằng chứng (không đọc lại, các file 02/04 không đổi kể từ lần chạy trước).
 >
@@ -226,11 +226,19 @@ Trang này sinh tự động từ `Research/plan/`. Tiến độ tính bằng s�
 >
 > **Giai đoạn 4b — Trải bài: hoàn tất 5/5, commit `489b9be`.** UI chọn chủ đề + xáo/rút bài (Framer Motion) + reduced-motion (verify bằng Playwright context thật, không chỉ nút demo) + RNG server-side + `/api/reading`. Phát hiện + vá 1 bug sitewide có sẵn từ GĐ3: `--spacing-*: initial` xoá luôn giá trị "0" của Tailwind, làm `inset-0`/`top-0`/... không sinh CSS — `docs/learned/tailwind-v4-spacing.md`.
 >
-> **Giai đoạn 4c — Đọc sâu: code xong nhưng `08-timeline.md` vẫn 0/10, 🔴 vẫn chặn bởi key AI sai — nhưng bước chọn lá (`CardSpreadPicker`) vừa trải qua 1 vòng redesign UI/UX đáng kể, chưa commit.** Toàn bộ lib, 3 API route, route `/doc-sau` như cũ, gate `lint`/`typecheck`/`build` vẫn xanh. **Mới cùng ngày 2026-08-19 (phiên sau)**: vì `ANTHROPIC_API_KEY` vẫn sai (chưa có xác nhận đã sửa), user chủ động thiết kế lại phần UI không phụ thuộc AI (bước trải bài + chọn 3 lá) qua 1 route bypass tạm (`src/app/api/dev-mint-token/`, **untracked, PHẢI xoá trước khi ship** — bỏ qua kiểm duyệt AI, chỉ để test UI). Qua nhiều vòng phản hồi trực tiếp, `CardSpreadPicker.tsx` được viết lại tổng cộng **7 lần** (CSS Grid tĩnh → animate `left`/`top` thật tham khảo trực tiếp `boitarot.com.vn/boi-tarot/` → bố cục 70/30 vỡ khung `max-w-5xl` chiếm gần hết màn hình, tự nở 50% khi đủ 3 lá → chữ hiện lần lượt theo từ). Phát hiện + vá thêm nhiều bug thật lúc verify: lặp lại đúng lớp lỗi Tailwind `--spacing-*: initial` đã ghi ở 4b (lần này `w-80` chứ không phải `inset-0`) khiến panel giải thích tràn full-width; `z-index` tuỳ tiện làm panel không đè lên được lá bài dù đã tính đúng công thức; `Image fill` thiếu `position:relative`; rule mới của React Compiler (`react-hooks/set-state-in-effect`) chặn build 2 kiểu khác nhau. Chi tiết đầy đủ (7 revision, từng bug, từng lần verify bằng Playwright + tài khoản test thật) ở `.claude/brain/4c-picker-redesign/task.md` (**untracked**, chưa commit). Xem thêm §9.1d.
+> **Giai đoạn 4c — Đọc sâu: `08-timeline.md` nay 10/11 (user tự tick), chỉ còn "đo token thật bằng `countTokens`" — 🔴 chặn key AI cũ đã được vòng qua, không phải sửa.** Toàn bộ lib, 3 API route, route `/doc-sau`, `CardSpreadPicker` (qua 7 vòng redesign, xem lịch sử ở §9.1d) đều đã hoạt động, gate `lint`/`typecheck`/`build` vẫn xanh. Route bypass `src/app/api/dev-mint-token/` — **đã xoá hẳn**, `DeepReadingStage.tsx` gọi lại đúng `/api/reading/deep/shuffle` thật. Xem thêm §9.1d và bullet dưới đây cho khối lượng việc mới ngoài plan gốc.
+>
+> **Việc mới ngoài `08-timeline.md` — hạ tầng AI đa nhà cung cấp + 4 bug thật đã phát hiện và vá (phiên này, chưa commit).** User yêu cầu thêm khả năng chọn/so sánh nhà cung cấp AI cho Lớp Cá nhân — không có checkbox tương ứng trong plan gốc (plan chỉ giả định Anthropic), nêu ở đây thay vì §2 vì không đối chiếu được với đầu việc nào cụ thể:
+> - **`AI_PROVIDER`/`TRIAGE_AI_PROVIDER`** (env, độc lập nhau) chọn Anthropic/OpenAI/Gemini — riêng cho Lớp Cá nhân và riêng cho bước kiểm duyệt, mỗi provider có key/model/client lazy-init riêng (`src/lib/ai/provider.ts` + `src/lib/ai/providers/{anthropic,openai,gemini}.ts`)
+> - **Bug 1 — double-debit**: `next.config.ts` có `reactStrictMode: true`, `DeepResultStream.tsx` gọi `fetch` trong effect không có `AbortController` → StrictMode double-invoke ở dev khiến 1 lần "Đọc sâu" trừ credits + gọi AI **2 lần**. Đã vá bằng `AbortController` — xem `docs/learned/react-effects.md`
+> - **Bug 2 — Gemini cắt cụt nội dung**: Gemini 3.x mặc định bật "thinking", dùng chung ngân sách với `maxOutputTokens`; 1500 token không đủ nên bị cắt ở ~60 token (có lần thoái hoá thành rò rỉ hướng dẫn định dạng tiếng Anh). `thinkingConfig: {thinkingBudget: 0}` bị model từ chối (400) nên không tắt được — vá bằng tăng `maxTokens` lên 4000 (personal) / 1024 (triage). Verify lại: 459 từ, đúng chủ đề + 3 lá, đúng yêu cầu 350–450 từ — xem `docs/learned/gemini-api.md`
+> - **Bug 3 — panel che text Đọc sâu**: `ContextPanel` (`position:fixed`, `z-index:300`) tự nở 50vw đè lên khu trải bài khi đủ 3 lá — đúng thiết kế — nhưng `DeepResultStream` render dưới nó không né vùng này, bị che ở độ rộng màn hình phổ biến. Vá bằng nút bật/tắt panel (tự ẩn khi bắt đầu Đọc sâu, vẫn bật lại được thủ công)
+> - **Thiếu luồng vào Đọc sâu từ trang chủ**: card marketing "Đọc sâu — trả credits" trên `/` chỉ là text, không có link nào tới `/doc-sau`; đồng thời gate "chưa đăng nhập" của `/doc-sau` vẫn ghi "trang đăng nhập đang hoàn thiện" dù `/dang-nhap` đã xong từ Giai đoạn 5 — cả hai đã vá
+> - **Tính năng mới**: trang xem chi tiết 1 lượt trải bài trong lịch sử (`/tai-khoan/[id]`) — trước đó danh sách lịch sử chỉ có tên lá + nút xoá, không xem lại được nội dung
 >
 > **Giai đoạn 5 — Tài khoản: hoàn tất 5/5, commit `fc9830f`.** Đăng nhập magic link + Google OAuth + **email/mật khẩu** (bổ sung ngoài plan gốc — user tự test dính rate-limit email của mailer test Supabase, cần đường dự phòng không phụ thuộc gửi email thật). Middleware bảo vệ `/tai-khoan`, trang cá nhân (credits + 2 danh sách phân trang), xoá lượt trải bài. Phát hiện + vá 1 bug sitewide: `env.ts` đọc `process.env[key]` động khiến `NEXT_PUBLIC_*` không inline được cho bundle browser, chặn hoàn toàn đăng nhập — `docs/learned/nextjs-env-bundling.md`. Verify đầy đủ bằng session thật + 12 dòng dữ liệu seed, dọn sạch sau khi xong.
 >
-> **Giai đoạn 6 — Thanh toán: code + DB xong theo repo, `08-timeline.md` vẫn 0/8, commit `c2abf40`.** Chọn gói → tạo đơn PayOS thật (`@payos/node` v2, SDK method thật đã verify qua source GitHub, khác snippet minh hoạ ban đầu ở `05-thanh-toan-credits.md`) → QR render trong trang (`qrcode` lib) + đếm ngược + Realtime/polling → webhook verify chữ ký → `credit_order` atomic/idempotent → cron dọn đơn hết hạn. Migration DB đổi chữ ký `credit_order` bị auto-mode permission classifier chặn 2 lần (đổi hàm xử lý tiền thật) — **user tự chạy qua Supabase Dashboard**; lúc verify lại phát hiện thêm 1 lỗ hổng thật (`PUBLIC` vẫn có `EXECUTE` vì dòng `revoke` cuối khối SQL không chạy khi paste tay — Dashboard báo "Success" chỉ chứng minh câu lệnh cuối, không phải cả khối) — đã vá + xác nhận lại. Tạo đơn thật đã verify thành công (QR quét được, `checkoutUrl` PayOS thật). **Còn hoãn theo lựa chọn chủ động của user**: test webhook đầu-cuối bằng giao dịch thật (PayOS xác nhận qua tài liệu chính thức — **không có sandbox**, mọi test bắt buộc là tiền thật) — cần đăng ký tài khoản ngrok.com + cấu hình webhook trên PayOS Dashboard. Xem `.claude/brain/phase-6-thanh-toan/walkthrough.md`.
+> **Giai đoạn 6 — Thanh toán: `08-timeline.md` nay 7/8 (user tự tick), chỉ còn "query đối soát" — commit `c2abf40`.** Chọn gói → tạo đơn PayOS thật (`@payos/node` v2, SDK method thật đã verify qua source GitHub, khác snippet minh hoạ ban đầu ở `05-thanh-toan-credits.md`) → QR render trong trang (`qrcode` lib) + đếm ngược + Realtime/polling → webhook verify chữ ký → `credit_order` atomic/idempotent → cron dọn đơn hết hạn. Migration DB đổi chữ ký `credit_order` bị auto-mode permission classifier chặn 2 lần (đổi hàm xử lý tiền thật) — **user tự chạy qua Supabase Dashboard**; lúc verify lại phát hiện thêm 1 lỗ hổng thật (`PUBLIC` vẫn có `EXECUTE` vì dòng `revoke` cuối khối SQL không chạy khi paste tay — Dashboard báo "Success" chỉ chứng minh câu lệnh cuối, không phải cả khối) — đã vá + xác nhận lại. Tạo đơn thật đã verify thành công (QR quét được, `checkoutUrl` PayOS thật). **Còn hoãn theo lựa chọn chủ động của user**: test webhook đầu-cuối bằng giao dịch thật (PayOS xác nhận qua tài liệu chính thức — **không có sandbox**, mọi test bắt buộc là tiền thật) — cần đăng ký tài khoản ngrok.com + cấu hình webhook trên PayOS Dashboard. Xem `.claude/brain/phase-6-thanh-toan/walkthrough.md`.
 
 ### 1.1 Sản phẩm tách hai tầng
 
@@ -256,21 +264,21 @@ Tính bằng số checkbox đã tick trên tổng số checkbox của từng gia
 | 1. Nghiên cứu & Chuẩn bị | ✅ xong | 100% | 8 / 8 | 3–4 | Có |
 | 2. Thiết kế | ✅ xong | 100% | 8 / 8 | 5–6 | Có |
 | 3. Setup nền tảng | ✅ xong | 100% | 8 / 8 | 2–3 | Có |
-| 4. Tính năng cốt lõi | 🔵 đang làm | 44% | 8 / 18 | 8–10 | Có |
+| 4. Tính năng cốt lõi | 🔵 đang làm | 95% | 19 / 20 | 8–10 | Có |
 | 5. Tài khoản | ✅ xong | 100% | 5 / 5 | 2–3 | Có |
-| 6. Thanh toán | ⬜ 0% theo checkbox · ⚠️ code+DB xong theo repo | 0% | 0 / 8 | 4–5 | Có |
+| 6. Thanh toán | 🔵 đang làm | 88% | 7 / 8 | 4–5 | Có |
 | 7. Kiểm duyệt & pháp lý | ⬜ chưa bắt đầu | 0% | 0 / 8 | 3–4 | Có |
 | 8. Testing | ⬜ 🔴 có mục chặn | 0% | 0 / 20 | 4–5 | Có |
 | 9. SEO & Nội dung | ⬜ chưa bắt đầu | 0% | 0 / 5 | 2–3 | Song song từ GĐ 5 |
-| 10. Deploy | ⬜ chưa bắt đầu | 0% | 0 / 9 | 2 | Có |
+| 10. Deploy | ⬜ 🔴 có mục chặn | 0% | 0 / 10 | 2 | Có |
 | 11. Sau ra mắt | ⬜ chưa bắt đầu | 0% | 0 / 5 | Liên tục | — |
-| **Tổng (theo checkbox)** | | **36%** | **37 / 102** | **34–43** | |
+| **Tổng (theo checkbox)** | | **52%** | **55 / 105** | **34–43** | |
 
-> **Giai đoạn 4 = 4a(3) + 4b(5) + 4c(10) = 18 đầu việc.** 4a và 4b xong (8/8); 4c **code đã xong trong repo** (route, lib, UI đều tồn tại và đã commit — xem §9.1d) nhưng checkbox trong `08-timeline.md` vẫn 0/10, nên bảng này (tính theo checkbox) hiện 8/18 — thấp hơn thực tế.
+> **Giai đoạn 4 = 4a(4) + 4b(5) + 4c(11) = 20 đầu việc** (4a có 4 mục, không phải 3 như lần `/report` trước — bản đó bỏ sót "Import vào `base_content`", đã bổ sung ở §2.5). 4a và 4b xong (9/9); 4c nay **10/11 theo checkbox** (user tự tick, khớp đúng bằng chứng repo đã ghi ở §9.1d lần trước) — chỉ còn "Đo token thật bằng `countTokens`". Bảng này hiện 19/20.
 >
-> **Giai đoạn 6 = 0/8 theo checkbox nhưng ⚠️ đã có bằng chứng repo cho ~7/8 mục** (DB migration, `POST /api/orders`, webhook route, Realtime, polling, cron, trừ credits Đọc sâu đã có từ 4c) — chỉ còn "Query đối soát" (chưa có giao dịch thật để đối soát) và bản thân việc **test webhook thật** chưa hoàn thành đầu-cuối (hoãn theo lựa chọn user). Xem §9.1e.
+> **Giai đoạn 6 nay 7/8 theo checkbox** (user tự tick) — chỉ còn "Query đối soát `profiles.credits` vs `sum(ledger.delta)`" (chưa có giao dịch thật để đối soát) và bản thân việc **test webhook thật** vẫn chưa hoàn thành đầu-cuối (hoãn theo lựa chọn user, không tính là 1 checkbox riêng — nằm trong mục webhook đã tick). Xem §9.1e.
 >
-> Giai đoạn 8 vẫn giữ 19 → 20 đầu việc (mục CSR rút từ nghiên cứu đối thủ). Cờ 🔴 "gửi lại cùng một webhook 3 lần" vẫn treo — đây chính là phần việc đang bị hoãn ở Giai đoạn 6, không phải chưa tới lượt nữa (dự án đã qua GĐ 6 về mặt code).
+> Giai đoạn 8 vẫn giữ 20 đầu việc. Giai đoạn 10 nay **10** đầu việc, không phải 9 như lần trước (bản đó bỏ sót mục 🔴 "Thay ảnh tạm từ đối thủ", đã bổ sung ở §2.11). Cờ 🔴 "gửi lại cùng một webhook 3 lần" (GĐ8) và 🔴 "thay ảnh tạm" (GĐ10) vẫn treo — cờ đầu chính là phần việc đang hoãn ở Giai đoạn 6.
 
 *Nguồn: `Research/plan/08-timeline.md` §3, §4*
 
@@ -313,15 +321,16 @@ Tính bằng số checkbox đã tick trên tổng số checkbox của từng gia
 | ✅ | Setup Sentry | `@sentry/nextjs` client/server/edge; **DSN thật chưa có**, no-op an toàn khi rỗng |
 | ✅ | Validate env bằng zod lúc khởi động | Lỗi cấu hình phải nổ sớm — `src/lib/env.ts`, parse **lazy** (tránh vỡ `next build` khi chưa có Supabase thật — bug 🔴 bắt được ở `/design-review`, đã fix) |
 
-### 2.5 Giai đoạn 4 — Tính năng cốt lõi · 8–10 ngày · 8/18
+### 2.5 Giai đoạn 4 — Tính năng cốt lõi · 8–10 ngày · 19/20
 
-**4a. Nội dung nền — 2 ngày · 3/3 ✅** — chạy song song với GĐ3
+**4a. Nội dung nền — 2 ngày · 4/4 ✅** — chạy song song với GĐ3
 
 | ✓ | Đầu việc | Ghi chú |
 |---|---|---|
 | ✅ | Viết system prompt Lớp Nền | `scripts/base-content/src/prompt.ts` |
 | ✅ | Sinh 780 tổ hợp | Đổi cơ chế 2026-08-10: bỏ Batch API, agent Claude Code sinh trực tiếp qua 26 lần gọi nền, **$0** thay vì ~$5 dự toán. 780/780 xong 2026-08-16 |
 | ✅ | Đọc mẫu ≥50 đoạn, sửa nếu lệch | Đọc ~70 đoạn, quét tự động bắt 70 lượt dùng từ cấm lọt qua tự-kiểm-tra agent — sửa hết, quét lại sạch |
+| ✅ | Import vào `base_content` + tạo unique index | Chạy thật 2026-08-16: 780/780 dòng vào `base_content`, xác nhận qua SQL (mục này bị bỏ sót ở lần `/report` trước) |
 
 **4b. Trải bài — 4–5 ngày · 5/5 ✅** — hoàn thành 2026-08-16, commit `489b9be`
 
@@ -333,22 +342,23 @@ Tính bằng số checkbox đã tick trên tổng số checkbox của từng gia
 | ✅ | RNG server-side (`crypto.randomInt`) | `src/lib/reading.ts` `drawCard()` |
 | ✅ | API route `/api/reading`: đọc Lớp Nền, trả về | `src/app/api/reading/route.ts` |
 
-**4c. Lớp Cá nhân — 2–3 ngày · 0/10 theo checkbox ⚠️ code xong theo repo**
+**4c. Lớp Cá nhân — 2–3 ngày · 10/11 theo checkbox**
 
 | ✓ | Đầu việc | Ghi chú |
 |---|---|---|
-| ⬜⚠️ | Viết system prompt Lớp Cá nhân | Có: `src/lib/ai/deep-reading-prompt.ts` |
-| ⬜⚠️ | Viết prompt + hàm kiểm duyệt (Haiku 4.5 + structured output) | Có: `src/lib/moderation.ts` |
-| ⬜⚠️ | `drawCards(count, orientationMode)` — mở rộng RNG, ép hướng `unified` | Có: `src/lib/reading.ts` (mở rộng thêm, không sửa `drawCard()` gốc) |
-| ⬜⚠️ | UI trải bài "tự chọn lá" — N vị trí lá úp | Có: `src/components/reading/CardSpreadPicker.tsx` |
-| ⬜⚠️ | Token ký (HMAC, TTL ngắn) đóng gói 3 lá đã rút | Có: `src/lib/reading-token.ts` |
-| ⬜⚠️ | API `POST /api/reading/deep/reveal` | Có: `src/app/api/reading/deep/reveal/route.ts` |
-| ⬜⚠️ | Nút "Đọc sâu cho câu hỏi của bạn" | Có: trong `DeepReadingStage.tsx`/`CardSpreadPicker.tsx` |
-| ⬜⚠️ | API `POST /api/reading/deep/personal` | Có: `src/app/api/reading/deep/personal/route.ts` |
-| ⬜⚠️ | `after()` ghi `readings` sau khi stream xong | Có — xem route `personal` |
-| ⬜⚠️ | Xử lý `stop_reason: refusal` + hoàn credits khi lỗi | Có — `refund_reading` RPC đã dùng |
+| ✅ | Viết system prompt Lớp Cá nhân | `src/lib/ai/deep-reading-prompt.ts` — nay có thêm dòng cấm tự tính/suy luận thông tin cá nhân cụ thể (tuổi, ngày tháng) từ câu hỏi, sau khi phát hiện model tự tính sai tuổi từ ngày sinh user gõ trong câu hỏi tự do |
+| ✅ | Viết prompt + hàm kiểm duyệt (Haiku 4.5 + structured output) | `src/lib/moderation.ts` — nay provider-agnostic, chọn qua `TRIAGE_AI_PROVIDER` (xem bullet "Việc mới ngoài plan" ở §1) |
+| ✅ | `drawCards(count, orientationMode)` — mở rộng RNG, ép hướng `unified` | `src/lib/reading.ts` (mở rộng thêm, không sửa `drawCard()` gốc) |
+| ✅ | UI trải bài "tự chọn lá" — N vị trí lá úp | `src/components/reading/CardSpreadPicker.tsx` — nay có thêm nút bật/tắt panel ngữ cảnh (vá bug che text Đọc sâu, xem §1) |
+| ✅ | Token ký (HMAC, TTL ngắn) đóng gói 3 lá đã rút | `src/lib/reading-token.ts` |
+| ✅ | API `POST /api/reading/deep/reveal` | `src/app/api/reading/deep/reveal/route.ts` |
+| ✅ | Nút "Đọc sâu cho câu hỏi của bạn" | Trong `DeepReadingStage.tsx`/`CardSpreadPicker.tsx` — nay gọi đúng `/api/reading/deep/shuffle` thật, route bypass `dev-mint-token` đã xoá |
+| ✅ | API `POST /api/reading/deep/personal` | `src/app/api/reading/deep/personal/route.ts` — nay dùng `getAiProvider()` đa nhà cung cấp thay vì gọi thẳng Anthropic SDK |
+| ✅ | `after()` ghi `readings` sau khi stream xong | Trong route `personal` — nay ghi thêm cột `ai_provider` (migration `20260827000001_readings_ai_provider.sql`) |
+| ✅ | Xử lý `stop_reason: refusal` + hoàn credits khi lỗi | `refund_reading` RPC |
+| ⬜ | Đo token thật bằng `countTokens`, cập nhật dự toán | **Thật sự chưa làm** — không có lệnh gọi `countTokens` nào trong repo |
 
-⚠️ **Cả 10 mục có bằng chứng code đầy đủ trong repo (đã commit) nhưng chưa được tick trong `08-timeline.md`** — task riêng `.claude/brain/phase-4c-doc-sau/task.md` tự báo gate lint/typecheck/build xanh + verify `pnpm dev` thật, chỉ còn thiếu responsive test (`⏭️ skipped: không có trình duyệt`) và chưa chạy `/finish`. Xem §9.1d.
+**10/11 mục đã tick trong `08-timeline.md`** (user tự tick, khớp đúng bằng chứng repo đã ghi ở lần `/report` trước) — verify đầu-cuối thật với AI thật đã hoàn thành trong phiên này (không còn dừng ở "chỉ đọc code"): 1 lượt Đọc sâu thật qua Gemini, 459 từ, đúng chủ đề + khớp cả 3 lá đã rút, đúng khoảng 350–450 từ yêu cầu. Xem §9.1d cho toàn bộ diễn biến (bug tìm thấy + vá) và §1 cho khối lượng việc mới ngoài plan gốc.
 
 ### 2.6 Giai đoạn 5 — Tài khoản · 2–3 ngày · 5/5 ✅
 
@@ -362,19 +372,19 @@ Hoàn thành 2026-08-18, commit `fc9830f`.
 | ✅ | Trang lịch sử giao dịch (đọc từ `credit_ledger`) | `LedgerTable` |
 | ✅ | Chức năng xóa từng lượt trải bài | `DeleteReadingButton` + `DELETE /api/readings/[id]` |
 
-### 2.7 Giai đoạn 6 — Thanh toán · 4–5 ngày · 0/8 theo checkbox ⚠️ code+DB xong theo repo
+### 2.7 Giai đoạn 6 — Thanh toán · 4–5 ngày · 7/8 theo checkbox
 
 Commit `c2abf40`. Xem §9.1e cho đối chiếu đầy đủ.
 
 | ✓ | Đầu việc | Ghi chú |
 |---|---|---|
-| ⬜⚠️ | Trang chọn gói credits + checkbox xác nhận điều khoản | Có: `src/app/nap-credits/page.tsx`, `PackagePicker.tsx` |
-| ⬜⚠️ | API tạo đơn + gọi PayOS | Có: `POST /api/orders` — verify thật (đơn thật, QR thật render) |
-| ⬜⚠️ | Webhook: verify signature → gọi `credit_order` (atomic + idempotent) | Có code + DB function đã migrate; **chưa test đầu-cuối bằng webhook thật** — hoãn theo lựa chọn user |
-| ⬜⚠️ | Realtime cập nhật trạng thái | Có: publication `orders` đã bật + `QrPanel.tsx` subscribe |
-| ⬜⚠️ | Fallback polling 5s | Có, trong `QrPanel.tsx` |
-| ⬜⚠️ | Cron dọn đơn hết hạn | Có: `GET /api/cron/expire-orders` + `vercel.json` |
-| ⬜⚠️ | Trừ credits atomic khi Đọc sâu + hoàn khi lỗi | Đã có sẵn từ 4c (`debit_reading`/`refund_reading`), GĐ6 chỉ xác nhận lại |
+| ✅ | Trang chọn gói credits + checkbox xác nhận điều khoản | `src/app/nap-credits/page.tsx`, `PackagePicker.tsx` |
+| ✅ | API tạo đơn + gọi PayOS | `POST /api/orders` — verify thật (đơn thật, QR thật render) |
+| ✅ | Webhook: verify signature → gọi `credit_order` (atomic + idempotent) | Code + DB function đã migrate; **chưa test đầu-cuối bằng webhook thật** — hoãn theo lựa chọn user, tick vì code/DB đã xong đúng như plan yêu cầu |
+| ✅ | Realtime cập nhật trạng thái | Publication `orders` đã bật + `QrPanel.tsx` subscribe |
+| ✅ | Fallback polling 5s | Trong `QrPanel.tsx` |
+| ✅ | Cron dọn đơn hết hạn | `GET /api/cron/expire-orders` + `vercel.json` |
+| ✅ | Trừ credits atomic khi Đọc sâu + hoàn khi lỗi | Đã có sẵn từ 4c (`debit_reading`/`refund_reading`), GĐ6 chỉ xác nhận lại |
 | ⬜ | Query đối soát `profiles.credits` vs `sum(ledger.delta)` | Thật sự chưa làm — chưa có giao dịch thật nào để đối soát |
 
 ### 2.8 Giai đoạn 7 — Kiểm duyệt, bảo mật & pháp lý · 3–4 ngày · 0/8
@@ -449,10 +459,11 @@ Chạy song song từ GĐ 5, không nằm trên đường găng.
 | ⬜ | Google Search Console + submit sitemap | Ngoài repo |
 | ⬜ | Schema.org markup | |
 
-### 2.11 Giai đoạn 10 — Deploy · 2 ngày · 0/9
+### 2.11 Giai đoạn 10 — Deploy · 2 ngày · 0/10
 
 | ✓ | Đầu việc | Ghi chú |
 |---|---|---|
+| ⬜🔴 | Thay ảnh tạm từ đối thủ (`public/_placeholder-doi-thu/`) bằng asset thật của Ventus, xoá thư mục | Mục này bị bỏ sót ở lần `/report` trước. Gitignore đã chặn commit nên deploy hiện tại thiếu ảnh, không lộ ảnh đối thủ — vẫn phải dọn trước khi coi 4c là xong hẳn, xem `03-kien-truc-ai.md §7.3` |
 | ⬜ | Vercel Pro + domain + SSL | Pro bắt buộc khi có thanh toán |
 | ⬜ | Bật Fluid Compute, đặt `maxDuration` | Chống timeout khi stream 3 lá |
 | ⬜ | Supabase **Pro** (không để Free ở production) | Free tự pause sau 7 ngày |
@@ -637,13 +648,14 @@ flowchart LR
 
 > ⚠️ **Webhook trùng phải idempotent — code + DB đã sẵn sàng, chưa test đầu-cuối bằng giao dịch thật.** Hạ từ 🔴 xuống ⚠️: `credit_order` đã atomic (`for update` khoá dòng) + idempotent (kiểm tra `status` tường minh + unique index `credit_ledger_idem` là lưới an toàn cuối) + đã migrate lên Supabase thật, route webhook đã verify chữ ký đúng cách (raw body, không parse trước). Còn thiếu duy nhất: chạy thật case "gửi lại cùng webhook 3 lần" — **hoãn theo lựa chọn chủ động của user**, không phải bị chặn. Rủi ro thật cần biết: **PayOS không có sandbox** (xác nhận qua `payos.vn/docs/moi-truong-test`) — mọi lần test đều là giao dịch thật, kể cả ở bước dev qua ngrok. Cho tới khi test xong: **giao dịch thật trên production sẽ không cộng được credits nếu webhook PayOS Dashboard chưa được cấu hình trỏ về đúng URL.**
 
-> 🔴 **Giai đoạn 4c chặn thật — `ANTHROPIC_API_KEY` không hợp lệ.** Phát hiện 2026-08-19 qua verify bằng session thật: Anthropic API trả thẳng `401 "API key is invalid"` khi route `shuffle` gọi kiểm duyệt Haiku. Không phải thiếu key (đã có giá trị trong `.env.local`) mà là **giá trị sai** — cần bạn tự kiểm tra lại trong Anthropic Console. Chặn toàn bộ luồng AI của 4c (shuffle/reveal/personal) và phần còn lại của việc verify responsive (`CardSpreadPicker`, `DeepResultStream` chưa vào tới được). Đây là chặn kỹ thuật thật đầu tiên trong dự án kể từ khi PayOS được giải quyết — khác các mục "hoãn theo lựa chọn" khác trong báo cáo này.
+> 🔴→✅ **Giai đoạn 4c từng chặn thật bởi `ANTHROPIC_API_KEY` không hợp lệ — nay đã vòng qua bằng hạ tầng đa nhà cung cấp AI.** Anthropic API từng trả thẳng `401 "API key is invalid"` khi route `shuffle` gọi kiểm duyệt Haiku, chặn toàn bộ luồng AI của 4c. Thay vì chỉ sửa key, user chọn thêm hỗ trợ OpenAI + Gemini (`AI_PROVIDER`/`TRIAGE_AI_PROVIDER`, độc lập cho Lớp Cá nhân và kiểm duyệt) — verify thành công đầu-cuối qua Gemini thật. Path Anthropic riêng **vẫn chưa xác nhận đã sửa key** nhưng không còn là blocker. Lúc verify hạ tầng mới phát hiện thêm 4 bug thật khác (double-debit do StrictMode+fetch không abort, Gemini cắt cụt nội dung do "thinking" ăn hết token budget, Gemini không tuân thủ nghiêm JSON schema, panel che text Đọc sâu) — cả 4 đã vá, xem §9.1d.
 
 ### 4.2 Bảng quản lý rủi ro
 
 | Rủi ro | Xác suất | Tác động | Giảm thiểu |
 |---|---|---|---|
-| 🔴 `ANTHROPIC_API_KEY` không hợp lệ (mới 2026-08-19) | **Đang xảy ra** — 401 xác nhận từ Anthropic API | Chặn toàn bộ luồng Đọc sâu (Giai đoạn 4c) — không kiểm duyệt, không rút bài AI, không stream được | Bạn tự kiểm tra lại giá trị key trong Anthropic Console, dán đúng vào `.env.local` |
+| `ANTHROPIC_API_KEY` không hợp lệ | **Đã hạ cấp** — vòng qua bằng multi-provider (Gemini chạy được), Anthropic path riêng vẫn chưa xác nhận đã sửa | Không còn chặn Đọc sâu nói chung; chỉ chặn nếu muốn dùng Anthropic làm provider mặc định production | Nếu muốn dùng Anthropic: tự kiểm tra lại giá trị key trong Anthropic Console, dán đúng vào `.env.local` |
+| Khối lượng uncommitted lớn (multi-provider AI, 4 bugfix, trang lịch sử chi tiết, entry point home — toàn bộ phiên mới nhất) | Đang xảy ra | Mất việc nếu sự cố máy/phiên trước khi commit | Commit sớm — xem §10 |
 | PayOS yêu cầu hộ kinh doanh | **Đã loại trừ** — tài khoản thật đã hoạt động | — | Đã xong |
 | Webhook thật chưa test đầu-cuối trước khi có giao dịch người dùng thật | Trung bình (tự chọn hoãn) | Nếu bỏ qua bước này mà mở thanh toán thật — credits không cộng được, mất niềm tin user | Hoàn tất trước Giai đoạn 10 (Deploy) — deploy đã có sẵn mục "giao dịch thật, đối soát ledger" trùng đúng việc này |
 | Chất lượng nội dung Lớp Nền không đạt | ~~Trung bình~~ **Đã qua** | — | 780/780 xong, đọc mẫu ~70 đoạn, không cần chạy lại |
@@ -824,11 +836,11 @@ Checkbox trong file markdown là **lời khai**, không phải bằng chứng. P
 | Hạng mục | Kết luận |
 |---|---|
 | Tick khống — đã tick, repo không có dấu vết và không có lý do hợp lệ khác | ✅ **0 mục.** |
-| **Repo có việc chưa được tick** (ngược lại — đã làm xong, checkbox chưa đánh dấu) | ⚠️ **18 mục.** Toàn bộ Giai đoạn 4c (10/10) và Giai đoạn 6 (7/8, trừ mục đối soát) có code/DB xong và đã commit nhưng `08-timeline.md` chưa tick — xem §9.1d và §9.1e. Đây là lệch lớn nhất hiện tại, không phải khai khống mà là **thiếu cập nhật tài liệu** sau khi 2 giai đoạn đó đóng |
-| Đã tick, có dấu vết đầy đủ trong repo | Toàn bộ Giai đoạn 1–3 (24/24, xem §9.1b/§9.1c, không đổi từ lần trước), Giai đoạn 4a (3/3), Giai đoạn 4b (5/5), Giai đoạn 5 (5/5) — tổng **37/37 mục đã tick đều có bằng chứng thật**, không có mục nào tick khống |
+| **Repo có việc chưa được tick** (ngược lại — đã làm xong, checkbox chưa đánh dấu) | ✅→⚠️ **Đóng phần lớn.** User đã tự tick Giai đoạn 4c (10/11) và Giai đoạn 6 (7/8) trong `08-timeline.md` sau khi lần `/report` trước nêu bằng chứng — khớp đúng, không lệch. Còn lại 1 hạng mục hoàn toàn mới ngoài mọi checkbox trong plan gốc: **multi-provider AI + 4 bugfix + trang lịch sử chi tiết + entry point home** (phiên mới nhất) — không đối chiếu được với đầu việc cụ thể nào vì plan gốc chưa từng giả định có tính năng này, xem §9.1d |
+| Đã tick, có dấu vết đầy đủ trong repo | Toàn bộ Giai đoạn 1–3 (24/24), Giai đoạn 4a (4/4), Giai đoạn 4b (5/5), Giai đoạn 4c (10/11), Giai đoạn 5 (5/5), Giai đoạn 6 (7/8) — tổng **55/55 mục đã tick đều có bằng chứng thật**, không có mục nào tick khống |
 | Đã tick nhưng repo không có dấu vết trực tiếp | **2 mục ở Giai đoạn 1** (đăng ký dịch vụ ngoài repo, spend limit) — không đổi từ lần trước, ghi theo lời khai + ⚠️ |
-| Đã làm nhưng chưa tick (ngoài 2 giai đoạn lớn ở trên) | **1 mục.** `.env`/`.env.*` đã nằm trong `.gitignore` — mục đầu checklist secret `06 §1.1`, chưa đánh dấu (file `06` không đổi, giữ nguyên ghi nhận từ lần trước) |
-| Trạng thái stack | **Next.js 16 + Tailwind v4 + Supabase (RLS + 5 RPC function, credentials thật) + Sentry (DSN thật chưa xác nhận) + PayOS (`@payos/node`, credentials thật) + `qrcode`.** `pnpm lint`/`typecheck`/`build` xanh. **11 commit** trên `main`: `7a138fa`→`c2abf40` (mới nhất `c2abf40` "*phase 6"). Không còn file lớn nào ở working tree ngoài phạm vi phiên làm việc hiện tại |
+| Đã làm nhưng chưa tick (ngoài các mục ở trên) | **1 mục.** `.env`/`.env.*` đã nằm trong `.gitignore` — mục đầu checklist secret `06 §1.1`, chưa đánh dấu (file `06` không đổi, giữ nguyên ghi nhận từ lần trước) |
+| Trạng thái stack | **Next.js 16 + Tailwind v4 + Supabase (RLS + 5 RPC function, credentials thật) + Sentry (DSN thật chưa xác nhận) + PayOS (`@payos/node`, credentials thật) + `qrcode`** · **AI đa nhà cung cấp: Anthropic + OpenAI + Gemini** (mới, phiên này). `pnpm lint`/`typecheck`/`build` xanh. Commit gần nhất trên `main`: `a584e61` ("*fix") — mới hơn `c2abf40` ghi ở lần trước. ⚠️ Khối lượng chưa commit ở working tree **lớn hơn lần trước**, không nhỏ đi — toàn bộ hạ tầng multi-provider AI + bugfix + tính năng mới của phiên này cộng dồn lên phần `4c-picker-redesign` đã chưa commit sẵn |
 | Thư mục `design/` | Là **git repo riêng** (remote `nts_tarot_design`) và đang bị `.gitignore` của repo gốc loại trừ — commit ở repo gốc **không** bao gồm trang này |
 
 ### 9.1b Giai đoạn 2 — Thiết kế: đối chiếu 8/8 đầu việc với `production/`
@@ -902,25 +914,51 @@ trên); chưa tạo Supabase project thật, chưa có Google OAuth/Sentry crede
 thật — cả ba là Open Questions, không chặn GĐ3 nhưng chặn phần verify "kết nối
 thật" trước Giai đoạn 4b/5/10.
 
-### 9.1d Giai đoạn 4c — Đọc sâu: code xong, checkbox 0/10, 🔴 chặn bởi key AI sai
+### 9.1d Giai đoạn 4c — Đọc sâu: 10/11 theo checkbox, 🔴 chặn key AI cũ đã vòng qua bằng multi-provider
 
-Task riêng chạy song song với các phiên khác (`.claude/brain/phase-4c-doc-sau/`)
-— code hoàn thành nhưng chưa quay lại tick `08-timeline.md` và chưa chạy
-`/finish`. **Rà soát lại 2026-08-19** phát hiện 1 chặn kỹ thuật thật mới —
-xem cuối mục này.
+Task riêng chạy song song với các phiên khác (`.claude/brain/phase-4c-doc-sau/`,
+`.claude/brain/4c-picker-redesign/`, `.claude/brain/multi-provider-deep-reading/`)
+— **user đã tự tick 10/11 mục trong `08-timeline.md`**, khớp đúng bằng chứng
+repo đã ghi ở lần `/report` trước. Lịch sử đầy đủ dưới đây, mới nhất trước.
 
 | Đầu việc (nguyên văn 08-timeline.md §4c) | Bằng chứng trong repo |
 |---|---|
-| Viết system prompt Lớp Cá nhân | `src/lib/ai/deep-reading-prompt.ts` |
-| Viết prompt + hàm kiểm duyệt (Haiku 4.5 + structured output) | `src/lib/moderation.ts` |
+| Viết system prompt Lớp Cá nhân | `src/lib/ai/deep-reading-prompt.ts` — nay có thêm dòng cấm model tự tính/suy luận thông tin cá nhân cụ thể (tuổi, ngày tháng) từ câu hỏi |
+| Viết prompt + hàm kiểm duyệt (Haiku 4.5 + structured output) | `src/lib/moderation.ts` — nay provider-agnostic qua `getTriageAiProvider()` |
 | `drawCards(count, orientationMode)` | `src/lib/reading.ts` (mở rộng thêm `drawCards`, không sửa `drawCard()` gốc của 4b) |
-| UI trải bài "tự chọn lá" | `src/components/reading/CardSpreadPicker.tsx` |
+| UI trải bài "tự chọn lá" | `src/components/reading/CardSpreadPicker.tsx` — nay có nút bật/tắt panel ngữ cảnh |
 | Token ký (HMAC, TTL ngắn) | `src/lib/reading-token.ts` |
 | API `POST /api/reading/deep/reveal` | `src/app/api/reading/deep/reveal/route.ts` |
-| Nút "Đọc sâu cho câu hỏi của bạn" | Trong `DeepReadingStage.tsx` |
-| API `POST /api/reading/deep/personal` | `src/app/api/reading/deep/personal/route.ts` |
-| `after()` ghi `readings` | Trong route `personal` |
+| Nút "Đọc sâu cho câu hỏi của bạn" | Trong `DeepReadingStage.tsx` — nay gọi đúng `/api/reading/deep/shuffle` thật |
+| API `POST /api/reading/deep/personal` | `src/app/api/reading/deep/personal/route.ts` — nay đa nhà cung cấp |
+| `after()` ghi `readings` | Trong route `personal` — nay ghi thêm `ai_provider` |
 | Xử lý `stop_reason: refusal` + hoàn credits | Gọi `refund_reading` RPC |
+| Đo token thật bằng `countTokens` | **Chưa làm** — mục duy nhất còn lại (10/11) |
+
+#### Mới nhất — hạ tầng AI đa nhà cung cấp + verify đầu-cuối thật (phiên này)
+
+User yêu cầu thêm khả năng chọn/so sánh nhà cung cấp AI — quyết định vòng qua
+🔴 cũ (key Anthropic sai) thay vì chỉ sửa key đó. Thiết kế qua `/plan` trước
+khi code (`.claude/brain/multi-provider-deep-reading/`):
+
+- **`AiProvider` interface** (`src/lib/ai/provider.ts`) chuẩn hoá 3 SDK khác
+  nhau (`@anthropic-ai/sdk`, `openai`, `@google/genai`) về cùng 1 hình dạng
+  event (`streamCompletion`/`classify`). `AI_PROVIDER` chọn provider cho Lớp
+  Cá nhân, `TRIAGE_AI_PROVIDER` chọn **độc lập** cho bước kiểm duyệt — đổi
+  model đang test không kéo theo đổi luôn hãng kiểm duyệt an toàn. Mỗi
+  provider còn có key riêng cho từng vai trò (`TRIAGE_*_API_KEY`, optional,
+  mặc định dùng lại key chính) để tách rate-limit/billing nếu cần.
+- **4 bug thật phát hiện + vá lúc verify bằng session live thật** (không chỉ đọc code):
+  1. **Double-debit**: `reactStrictMode: true` (`next.config.ts`) double-invoke effect ở dev; `DeepResultStream.tsx` gọi `fetch` không có `AbortController` → 1 lần "Đọc sâu" trừ credits + gọi AI 2 lần (bắt được qua 2 dòng `readings` trùng câu hỏi/lá cách nhau vài giây trong DB thật). Vá bằng `AbortController` + `.abort()` ở cleanup — `docs/learned/react-effects.md`
+  2. **Gemini cắt cụt nội dung**: Gemini 3.x mặc định bật "thinking", dùng chung ngân sách với `maxOutputTokens` — 1500 không đủ, cắt ở ~60 token (`output_tokens: 59-60` xác nhận qua SQL), có lần thoái hoá thành rò rỉ hướng dẫn định dạng tiếng Anh. `thinkingConfig: {thinkingBudget:0}` bị model từ chối (400) nên không tắt được — vá bằng tăng `maxTokens` (4000 personal / 1024 triage). Verify lại: `output_tokens: 542`, 459 từ, đúng chủ đề + khớp cả 3 lá — `docs/learned/gemini-api.md`
+  3. **Gemini không tuân thủ nghiêm `responseMimeType: application/json`** — đôi khi thêm lời dẫn trước JSON ("Here is th..."). Vá bằng parse kiên cường (`text.match(/\{[\s\S]*\}/)` thay vì `JSON.parse(text)` trực tiếp)
+  4. **Panel che text Đọc sâu**: `ContextPanel` (`position:fixed`, `z-index:300`) tự nở 50vw đè lên khu trải bài khi đủ 3 lá — đúng thiết kế — nhưng `DeepResultStream` render dưới nó không né vùng này, tính toán cho thấy chồng lấn thật ở ~1280–1440px. Vá theo yêu cầu user: nút bật/tắt panel, tự ẩn khi bắt đầu Đọc sâu, vẫn bật lại thủ công được
+- **Luồng vào Đọc sâu bị thiếu hoàn toàn từ trang chủ** (phát hiện khi user báo "chưa có luồng vào đọc sâu"): card marketing trên `/` chỉ là text, không link; đồng thời gate "chưa đăng nhập" của `/doc-sau` vẫn ghi "trang đăng nhập đang hoàn thiện" dù `/dang-nhap` đã xong từ Giai đoạn 5. Cả hai đã vá.
+- **Tính năng mới**: `/tai-khoan/[id]` — trang xem chi tiết 1 lượt trải bài (câu hỏi, 3 lá, Lớp Nền, Lớp Cá nhân nếu có), vì danh sách lịch sử trước đó không có cách nào xem lại nội dung, chỉ có tên lá + nút xoá.
+- **Verify cuối cùng**: 1 lượt Đọc sâu thật đầu-cuối qua Gemini (`gemini-3.6-flash`) — 459 từ, bám sát câu hỏi + cả 3 lá (kể cả không nhắc tên lá), đúng yêu cầu an toàn (không dùng "chắc chắn"/"định mệnh"), kết bằng hành động tự quyết định cụ thể. Đạt yêu cầu 350–450 từ của `PERSONAL_LAYER_SYSTEM`.
+- **Toàn bộ việc trên (multi-provider AI + 4 bugfix + trang lịch sử chi tiết + entry point home) vẫn CHƯA COMMIT** — cùng nhóm rủi ro với phần chưa commit của 4c-picker-redesign dưới đây.
+
+#### Lịch sử trước đó — redesign `CardSpreadPicker` (7 revision) + chặn key Anthropic (đã đóng)
 
 **Ghi chú quan trọng về lịch sử commit**: toàn bộ file 4c nằm trong cùng
 commit `489b9be` ("*phase 4b") — hai task chạy song song, 4c đã có file WIP
@@ -939,21 +977,25 @@ thật (tài khoản test qua UI, xoá sạch sau).
   chỉ nhìn ảnh chụp) — nghi ngờ ban đầu về bug đổi theme trên các nút chủ đề
   hoá ra là đọc nhầm màu trên ảnh, computed style xác nhận đúng token cả 2
   theme.
-- 🔴 **Chặn thật, không phải "chưa tới lượt"**: `POST /api/reading/deep/shuffle`
-  trả `moderation_failed`. Đào bằng debug log tạm thời (đã revert ngay sau
-  khi đọc log) cho thấy nguyên nhân: `ANTHROPIC_API_KEY` trong `.env.local`
-  **đã có giá trị** (khác lúc build 4c, lúc đó chưa có key nào) nhưng
-  **giá trị không hợp lệ** — Anthropic API trả thẳng
-  `401 authentication_error: "API key is invalid."`. Chặn toàn bộ phần còn
-  lại: không vào được `CardSpreadPicker` (N=24 vị trí) hay `DeepResultStream`
-  (stream AI) để verify responsive/a11y cho 2 component đó.
+- 🔴→✅ **Từng chặn thật, nay đã vòng qua**: `POST /api/reading/deep/shuffle`
+  từng trả `moderation_failed` vì `ANTHROPIC_API_KEY` trong `.env.local`
+  **có giá trị nhưng không hợp lệ** — Anthropic API trả thẳng
+  `401 authentication_error: "API key is invalid."`. Lúc đó chặn toàn bộ
+  phần còn lại: không vào được `CardSpreadPicker` hay `DeepResultStream` để
+  verify. **Đã vòng qua ở phiên sau** bằng hạ tầng multi-provider (xem mục
+  "Mới nhất" phía trên) — user lấy key OpenAI/Gemini thật, đổi
+  `AI_PROVIDER`/`TRIAGE_AI_PROVIDER`, verify thành công đầu-cuối qua Gemini.
+  Path Anthropic riêng vẫn chưa xác nhận đã sửa key — không còn chặn gì vì
+  đã có provider khác chạy được.
 
 **Cập nhật cùng ngày, phiên sau — redesign `CardSpreadPicker` (bước chọn lá),
-không đợi key AI đúng**: vì key vẫn sai, dùng 1 route bypass tạm
-`src/app/api/dev-mint-token/` (**untracked trong repo, PHẢI xoá trước khi
-ship** — ký token bỏ qua bước kiểm duyệt AI của `/shuffle` thật, chỉ để test
-UI phần trải bài/chọn lá không phụ thuộc AI) để test và thiết kế lại toàn bộ
-animation trải bài + chọn 3 lá qua nhiều vòng phản hồi trực tiếp từ user.
+không đợi key AI đúng**: vì key vẫn sai lúc đó, dùng 1 route bypass tạm
+`src/app/api/dev-mint-token/` (ký token bỏ qua bước kiểm duyệt AI của
+`/shuffle` thật, chỉ để test UI phần trải bài/chọn lá không phụ thuộc AI) để
+test và thiết kế lại toàn bộ animation trải bài + chọn 3 lá qua nhiều vòng
+phản hồi trực tiếp từ user. **Route bypass này đã bị xoá hẳn ở phiên sau** —
+`DeepReadingStage.tsx` gọi lại đúng `/api/reading/deep/shuffle` thật, không
+còn rủi ro lẫn vào production.
 Toàn bộ quá trình (7 revision) ghi ở `.claude/brain/4c-picker-redesign/`
 (**untracked**, chưa commit) — tóm tắt:
 
@@ -972,7 +1014,7 @@ qua UI signup thật, dọn sạch sau mỗi vòng (xác nhận `count(*) = 0`),
 `getBoundingClientRect()`/opacity/console error thật thay vì chỉ nhìn ảnh
 chụp — cách này bắt được phần lớn bug ở trên mà nhìn ảnh tĩnh sẽ bỏ sót.
 
-### 9.1e Giai đoạn 6 — Thanh toán: code + DB xong, checkbox 0/8
+### 9.1e Giai đoạn 6 — Thanh toán: code + DB xong, checkbox 7/8 (user tự tick)
 
 `.claude/brain/phase-6-thanh-toan/walkthrough.md` — hoàn thành trong phiên
 này, có bằng chứng đầy đủ nhất trong toàn bộ đối chiếu §9 (vì vừa làm xong).
@@ -1036,13 +1078,13 @@ phải việc còn treo.
 
 | Thứ tự | Việc | Vì sao bây giờ |
 |---|---|---|
-| 1 | 🔴 Sửa `ANTHROPIC_API_KEY` trong `.env.local` — lấy đúng giá trị từ Anthropic Console | Chặn kỹ thuật thật duy nhất hiện tại, phát hiện 2026-08-19. Không sửa được thì toàn bộ luồng AI của Giai đoạn 4c không thể verify hay dùng được, kể cả code/UI đã đúng |
-| 2 | 🔴 Xoá `src/app/api/dev-mint-token/` (route bypass tạm, untracked) + đổi lại `DeepReadingStage.tsx` gọi `/api/reading/deep/shuffle` thật thay vì route bypass | Bypass bỏ qua kiểm duyệt AI — an toàn để lại TRONG lúc dev nhưng **không được lẫn vào production**. Chỉ xoá được sau khi mục 1 xong và verify lại luồng thật hoạt động đúng |
-| 3 | Sau khi có key đúng + đã xoá bypass: verify lại toàn bộ luồng AI thật (`/shuffle` → `CardSpreadPicker` → `/reveal` → "Đọc sâu" → `DeepResultStream` stream) | `CardSpreadPicker` vừa qua 7 lần viết lại (§9.1d) nhưng luôn test qua route bypass — chưa có lần verify nào chạy đúng luồng thật đầu-cuối kèm kiểm duyệt AI thật |
-| 4 | Commit công việc redesign `CardSpreadPicker` (7 revision, §9.1d) — hiện toàn bộ vẫn **untracked/uncommitted**: `CardSpreadPicker.tsx`, `DeepReadingStage.tsx`, `Header.tsx`, `HeaderBreadcrumbSlot.tsx`, `.claude/brain/4c-picker-redesign/`, 2 file `docs/learned/*.md` mới cập nhật | Khối lượng công việc UI/UX đáng kể của phiên 2026-08-19 hiện chưa có trong lịch sử git — rủi ro mất nếu máy/phiên gặp sự cố trước khi commit |
-| 5 | Tick `08-timeline.md` cho Giai đoạn 4c (10 mục, §9.1d) và phần đã xong của Giai đoạn 6 (7/8 mục, §9.1e), rồi chạy `/finish` cho `4c-picker-redesign` | Tài liệu kế hoạch đang nói dối theo hướng bi quan — 2 giai đoạn thực chất gần xong nhưng hiện đọc như "chưa bắt đầu". `/report` không tự sửa file kế hoạch (đúng quy tắc), việc này cần người quyết định tick |
-| 6 | Khi sẵn sàng: hoàn tất test webhook thật cho Giai đoạn 6 (đăng ký ngrok.com, cấu hình webhook PayOS Dashboard, 1 giao dịch thật 49.000đ, gọi lại webhook 3 lần kiểm tra idempotent, chạy query đối soát) | Việc duy nhất còn lại trước khi Giai đoạn 6 thật sự đóng — user đã chủ động hoãn, không phải bị chặn. Trùng với 2 mục có sẵn ở Giai đoạn 10 (Deploy) nên có thể gộp làm 1 lần |
-| 7 | Bắt đầu Giai đoạn 7 — Kiểm duyệt, bảo mật & pháp lý (rate limit `/api/reading` + `/api/orders`, trang Điều khoản/Quyền riêng tư/Hoàn tiền, disclaimer) | Kế tiếp trên đường găng sau Giai đoạn 6; nội dung chính sách hoàn tiền đã có sẵn ở `05 §8`, chỉ cần đưa vào trang thật |
+| 1 | Commit toàn bộ khối lượng phiên mới nhất: hạ tầng multi-provider AI (`src/lib/ai/`), 4 bugfix (double-debit, Gemini truncation, JSON parse, panel che text), trang `/tai-khoan/[id]`, entry point Đọc sâu từ home, cùng với phần chưa commit trước đó (redesign `CardSpreadPicker` 7 revision, `.claude/brain/4c-picker-redesign/`) | Khối lượng uncommitted hiện lớn hơn cả lần trước — rủi ro mất việc thật nếu sự cố máy/phiên. Không còn lý do trì hoãn (mọi thứ đã verify xanh: lint/typecheck/build + 1 lượt Đọc sâu thật đầu-cuối) |
+| 2 | Quyết định provider AI mặc định cho production — Anthropic (cần sửa lại key) hay Gemini/OpenAI (đã verify chạy được) | Hạ tầng đa nhà cung cấp đã xong nhưng chưa ai chốt provider nào dùng khi ship thật; ảnh hưởng trực tiếp tới chi phí/lượt đã tính ở `07-du-toan-chi-phi.md` (dự toán hiện dựa trên giá Anthropic) |
+| 3 | Làm "Đo token thật bằng `countTokens`" (mục cuối còn lại của 4c) — nay có thêm dữ liệu thật từ phiên này (`output_tokens: 542` cho 1 lượt Gemini) để đối chiếu | Chỉ còn đúng 1 mục để 4c thành 11/11; đã có dữ liệu thật làm điểm tham chiếu, không cần chờ thêm |
+| 4 | Query đối soát `profiles.credits` vs `sum(ledger.delta)` (mục cuối còn lại của Giai đoạn 6) — dùng luôn dữ liệu test đã có (28 dòng `credit_ledger` của tài khoản test) | Chỉ còn đúng 1 mục để Giai đoạn 6 thành 8/8; không cần đợi giao dịch thật như webhook test bên dưới |
+| 5 | Khi sẵn sàng: hoàn tất test webhook thật cho Giai đoạn 6 (đăng ký ngrok.com, cấu hình webhook PayOS Dashboard, 1 giao dịch thật, gọi lại webhook 3 lần kiểm tra idempotent) | Việc duy nhất còn lại **thật sự cần giao dịch tiền thật** — user đã chủ động hoãn, không phải bị chặn. Trùng với 2 mục có sẵn ở Giai đoạn 10 (Deploy) nên có thể gộp làm 1 lần |
+| 6 | Bắt đầu Giai đoạn 7 — Kiểm duyệt, bảo mật & pháp lý (rate limit `/api/reading` + `/api/orders`, trang Điều khoản/Quyền riêng tư/Hoàn tiền, disclaimer) | Kế tiếp trên đường găng — Giai đoạn 4c và 6 nay coi như xong (chỉ còn việc lặt vặt không chặn); nội dung chính sách hoàn tiền đã có sẵn ở `05 §8`, chỉ cần đưa vào trang thật |
+| 7 | Cân nhắc dọn tài khoản test `boytran1105@gmail.com` khỏi `auth.users` (28 dòng `credit_ledger`, 2 `readings`) — user xác nhận đây là tài khoản của chính họ nên **không bắt buộc**, nhưng nếu muốn dọn thì cần chạy tay qua Supabase Dashboard (auto-mode chặn xoá `auth.users`) | Không phải rủi ro rò rỉ danh tính (đã xác minh qua session này) — chỉ là lựa chọn vệ sinh dữ liệu test, tuỳ user |
 | 8 | Thống nhất 5 con số lệch nội bộ trong bộ `plan/` (§9.3) | Rẻ để sửa bây giờ, đắt hơn khi Giai đoạn 7–10 lập ngân sách/schedule theo số sai |
 </script>
 
